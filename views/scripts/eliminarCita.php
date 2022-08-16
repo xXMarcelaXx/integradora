@@ -4,5 +4,5 @@ use barber\query\citas;
 require("../../vendor/autoload.php");
 $cancelar = new citas();
 $cancelar -> CANCELAR();
-header("location:../cita.php")
+header("location:../profile2.php");
 ?>
