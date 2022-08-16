@@ -132,7 +132,7 @@ foreach ($tabla as $row) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form action="scripts/guardaCat.php" method="post">
+                    <form action="scripts/guardacat.php" method="post">
                       <div class="form-row">
                         <div class="input-group mb-3">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-wrench"></i></span>

@@ -166,7 +166,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
         </div>
         <div class="row">
           <div class="col-md-6">
-            <form action="../views/scripts/eliminarCita.php">
+            <form action="../views/scripts/eliminarcita.php">
               <div class="col-md-3">
                 <button type="submit" class="btn btn-secondary">Cancelar Cita</button>
               </div>
