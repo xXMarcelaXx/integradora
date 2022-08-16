@@ -421,9 +421,7 @@ foreach ($tabla as $row) {
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <!-- Button trigger modal -->
                         <a href="../views/editarbarbero.php?id=<?php echo $reg->nombre_usuario ?>" class="btn btn-outline-secondary">Modificar Datos</a>
-
                       </div>
                   </form>
                   <!--sueldo-->
