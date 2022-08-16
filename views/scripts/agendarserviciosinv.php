@@ -1,6 +1,6 @@
 <?php
     extract($_POST);
-    use barber\query\CITAS;
+    use barber\query\citas;
 
     require('../../vendor/autoload.php');
     session_start();
@@ -8,7 +8,7 @@
     $fecha = $_SESSION['fecha'];
     $horario = $_SESSION['horario'];
 
-    $servicios = new CITAS();
+    $servicios = new citas();
     $servicios-> SERVICIO($serv1, $serv2);
     header("location:../vistaadmin.php");
 ?>

@@ -10,10 +10,10 @@
     <body>
         <div class="container">
             <?php
-                use Barber\query\Ejecuta;
+                use barber\query\ejecuta;
                 require("../../vendor/autoload.php");
 
-                $insert = new Ejecuta();
+                $insert = new ejecuta();
                 $imagen='';
 
                 if(isset($_FILES["img"]))

@@ -13,7 +13,7 @@
 </html>
         <?php
 
-        use barber\Query\ejecuta;
+        use barber\query\ejecuta;
 
         require("../../vendor/autoload.php");
         $id = $_GET['id'];

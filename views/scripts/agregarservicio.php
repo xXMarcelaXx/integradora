@@ -17,7 +17,7 @@
     <div class="container">
         <?php
 
-        use barber\Query\ejecuta;
+        use barber\query\ejecuta;
 
         require("../../vendor/autoload.php");
         $insert = new ejecuta();

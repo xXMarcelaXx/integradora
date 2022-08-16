@@ -15,7 +15,7 @@
 </html>
 <?php
     extract($_POST);
-    use barber\query\CITAS;
+    use barber\query\citas;
 
     require('../../vendor/autoload.php');
     session_start();
@@ -23,7 +23,7 @@
     $fecha = $_SESSION['fecha'];
     $_SESSION['horario'] = $horario;
 
-    $cita = new CITAS();
+    $cita = new citas();
     $cita-> CITA($fecha, $horario);
     echo "<div class='alert alert-success'> ACTUALIZADO </div>";
     header("refresh:3; ../registrarServicioInv.php")
