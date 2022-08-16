@@ -23,13 +23,13 @@ if(!ISSET($FI))
   $FI='';
   $FF='';
 }
-use barber\Query\ejecuta;
-use barber\Query\Select;
+use barber\query\ejecuta;
+use barber\query\select;
 
 include '../carrito/carrito.php';
 require("../vendor/autoload.php");
 
-$query = new Select();
+$query = new select();
 
 $cadena = "SELECT cuenta.nombre, concat(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno)as completo,
          cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta where cuenta.nombre_usuario='". $_SESSION['usuario'] ."'";
@@ -136,7 +136,7 @@ foreach ($tabla as $row) {
 
             require("../vendor/autoload.php");
 
-            $query3 = new Select();
+            $query3 = new select();
             $cadena3 = "SELECT * from productos";
             $producto = $query3->seleccionar($cadena3);
 
@@ -218,7 +218,7 @@ foreach ($tabla as $row) {
                 $_SESSION['fecha'] = $fecha;
 
 
-                $query = new Select();
+                $query = new select();
                 $cadena = "SELECT id_horario, horarios from HORARIOS LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH 
                             from citas inner join horarios on horarios.id_horario=citas.hora_cita where fecha='" . $_SESSION['fecha'] . "' and citas.status='Pendiente')
                             as HF on horarios.id_horario = HF.IH  where HF.HH is null;";
@@ -295,7 +295,7 @@ foreach ($tabla as $row) {
 
         <?php
         require("../vendor/autoload.php");
-        $query4 = new Select();
+        $query4 = new select();
         $cadena2 = "CALL barberia.OrdenClientePeriodo('$FI','$FF','". $_SESSION['usuario'] ."')";
         $tabla = $query4->seleccionar($cadena2);
 

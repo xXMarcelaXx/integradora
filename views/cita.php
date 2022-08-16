@@ -27,7 +27,7 @@
                         <?php
                             $date = date('Y-m-d');
                             $fecha= $date;
-                            use barber\query\Select;
+                            use barber\query\select;
                             require('../vendor/autoload.php');
                             
                             extract($_POST);
@@ -37,7 +37,7 @@
                             $_SESSION['fecha'] = $fecha;
                             
 
-                            $query = new Select();
+                            $query = new select();
                             $cadena = "SELECT id_horario, horarios from HORARIOS LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH 
                             from citas inner join horarios on horarios.id_horario=citas.hora_cita where fecha='".$_SESSION['fecha']."' and citas.status='Pendiente')
                             as HF on horarios.id_horario = HF.IH  where HF.HH is null;";

@@ -14,10 +14,10 @@
                         <div class="col-md-3">
                             <?php
 
-                                use barber\query\Select;
+                                use barber\query\select;
                                 require('../vendor/autoload.php');
                             
-                                $query1 = new Select();
+                                $query1 = new select();
                                 $cadena1 = "SELECT * from servicios";
                                 $reg1 = $query1->seleccionar($cadena1);
 
@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-md-3">
                                 <?php
-                                    $query2 = new Select();
+                                    $query2 = new select();
                                     $cadena2 = "SELECT * from servicios";
                                     $reg2 = $query2->seleccionar($cadena2);
                                     echo 

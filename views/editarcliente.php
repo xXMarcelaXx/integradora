@@ -12,7 +12,7 @@
     <div class="container">
         <?php
 
-        use barber\Query\Select;
+        use barber\query\select;
         $id = $_GET['id'];
         require "../vendor/autoload.php";
         $query = new select();

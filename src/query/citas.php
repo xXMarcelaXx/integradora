@@ -1,5 +1,5 @@
 <?php
-namespace barber\Query;
+namespace barber\query;
 use barber\query\ejecuta;
 use barber\query\select;
 

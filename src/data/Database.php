@@ -1,5 +1,5 @@
 <?php
-namespace barber\Data;
+namespace barber\data;
 Use PDO;
 use PDOException;
  class Database

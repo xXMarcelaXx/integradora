@@ -16,7 +16,7 @@
     <div class="container">
         <?php
 
-        use barber\Query\select;
+        use barber\query\select;
 
         require "../vendor/autoload.php";
         $query = new select();
@@ -32,7 +32,7 @@
             <div class="container">
                 <div class="card" style="width: 30rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">Editar</h5>
                         <form action="#" method="POST">
                             <div class="row">
                                 <!--Nombre de usuario-->

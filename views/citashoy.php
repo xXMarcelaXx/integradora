@@ -13,7 +13,7 @@
 
 <body>
     <?php
-            use barber\Query\select;
+            use barber\query\select;
     session_start();
     if($_SESSION['tipo_cuenta'] == 'Administrador'){
     $DateAndTime = date('Y-m-d');
@@ -103,7 +103,6 @@
   }
   else
   {
-    echo"<h1>No se meta donde no le llaman perro</h1>";
     header("refresh:3;scripts/cerrarsesion.php");
   }
   ?>

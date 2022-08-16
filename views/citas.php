@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script type="text/javascript" src="../js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>citas Esperadas</title>
+    <title>Citas Esperadas</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         <?php
 
 
-        use barber\Query\select;
+        use barber\query\select;
 
         require "../vendor/autoload.php";
         $query = new select();
@@ -69,13 +69,13 @@
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Gancias</h5>
+                        <h5 class="card-title">Ganancias</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Esperadas hoy</h6>
                         <p class="card-text"><?php echo '$' . $ganancia->Ganancias ?></p>
                         <p>Fecha: <?php echo $DateAndTime ?></p>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Mas Sobre citas
+                                Mas Sobre Citas
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../reportes/citaspendientes.php">Ver citas Pendientes</a></li>

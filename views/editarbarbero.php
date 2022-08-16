@@ -27,7 +27,7 @@
         <div class="container">
             <?php
 
-            use barber\Query\select;
+            use barber\query\select;
                         session_start();
             if($_SESSION['tipo_cuenta'] == 'Administrador'){
             $id = $_GET['id'];

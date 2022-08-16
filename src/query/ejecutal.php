@@ -1,7 +1,7 @@
 <?php
 namespace barber\query;
 
-use barber\Data\Database;
+use barber\data\Database;
 use PDO;
 use PDOException;
 

@@ -15,10 +15,10 @@
              <h2 >Perfil</h2>
              <br>
 <?php
-         use barber\Query\Select;
+         use barber\query\select;
          require("../vendor/autoload.php");
 
-        $query =new Select();
+        $query =new select();
         
          $cadena="SELECT cuenta.nombre, concat(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno)as completo,
          cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta INNER JOIN usuario
@@ -104,7 +104,7 @@
             <?php
           require("../vendor/autoload.php");
 
-          $query2 =new Select();
+          $query2 =new select();
 
           $cadena2= "SELECT productos.nombre_producto , orden_ventas_producto.ovp_fecha,
           detalle_ovproductos.cantidad,productos.costo, (detalle_ovproductos.cantidad*productos.costo) Total,orden_ventas_producto.forma_pago
@@ -148,7 +148,7 @@
             <?php
               require("../vendor/autoload.php");
 
-              $query3 =new Select();
+              $query3 =new select();
               $cadena3= "SELECT productos.id_producto id,productos.nombre_producto , productos.descripción  , productos.costo from productos";
               $producto=$query3->seleccionar($cadena3);
               

@@ -1,6 +1,6 @@
 <?php
 
-use barber\Query\select;
+use barber\query\select;
 
 require "../vendor/autoload.php";
 $ID = $_GET['id'];
@@ -41,7 +41,7 @@ require("../vendor/autoload.php");
 session_start();
 if($_SESSION['tipo_cuenta'] == 'Administrador'){
 
-$query = new Select();
+$query = new select();
 
 $cadena = "SELECT cuenta.nombre, concat(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno)as completo,
          cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta where cuenta.nombre_usuario='XxMarcelaXX'";
@@ -167,7 +167,6 @@ foreach ($tabla as $row) {
   }
   else
   {
-    echo"<h1>No se meta donde no le llaman perro</h1>";
     header("refresh:3;scripts/cerrarsesion.php");
   }
   ?>

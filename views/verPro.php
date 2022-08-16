@@ -20,7 +20,7 @@
 </head>
 <?php
 
-use barber\Query\Select;
+use barber\query\select;
 
 require("../vendor/autoload.php");
 

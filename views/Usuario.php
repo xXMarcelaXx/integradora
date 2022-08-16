@@ -20,13 +20,13 @@
 </head>
 <?php
 
-use barber\Query\Select;
+use barber\query\select;
 
 require("../vendor/autoload.php");
 session_start();
 if($_SESSION['tipo_cuenta'] == 'Administrador'){
 
-$query = new Select();
+$query = new select();
 
 $cadena = "SELECT cuenta.nombre, concat(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno)as completo,
          cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta where cuenta.nombre_usuario='XxMarcelaXX'";
@@ -225,7 +225,7 @@ foreach ($tabla as $row) {
 
 
             require("../vendor/autoload.php");
-            $consulta = new Select();
+            $consulta = new select();
             if ($_POST) {
                 extract($_POST);
 
