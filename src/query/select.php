@@ -1,10 +1,10 @@
 <?php
-namespace barber\Query;
+namespace barber\query;
 use PDO;
 use PDOException;
-use barber\Data\Database;
+use barber\data\Database;
 
-class Select
+class select
 {
     public function seleccionar($qry)
     {

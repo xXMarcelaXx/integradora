@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 $SID=session_id();
 $mensaje = "";

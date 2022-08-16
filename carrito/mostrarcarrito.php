@@ -1,6 +1,6 @@
 <?php
 include 'carrito.php';
-use barber\Query\Select;
+use barber\query\select;
 require("../vendor/autoload.php");
 ?>
 <!DOCTYPE html>
@@ -73,7 +73,7 @@ require("../vendor/autoload.php");
 
 <div class="d-flex justify-content-center row">
     <?php
-    $query3= new Select();
+    $query3= new select();
     $cadena3 = "SELECT * from productos";
     $producto = $query3->seleccionar($cadena3);
     foreach ($producto as $pro) {

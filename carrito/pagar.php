@@ -9,7 +9,7 @@
 <body>
 
     <?php
-    use barber\Query\ejecuta;
+    use barber\query\ejecuta;
 
     require ("../vendor/autoload.php");
     include 'carrito.php';
