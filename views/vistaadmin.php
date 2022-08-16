@@ -54,7 +54,7 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
           <li><a href="../views/verPro.php"><i class="bi bi-bag-fill"></i></i><span>Productos</span></a></li>
           <li><a href="../views/pedidos.php"><i class="bi bi-list-ul"></i><span>Pedidos</span></a></li>
           <li><a href="../views/ventas.php"><i class="bi bi-currency-dollar"></i><span>ventas</span></a></li>
-          <li><a href="../views/registrar.php"><i class="bi bi-card-checklist"></i><span>Registrar Venta</span></a></li>
+          <li><a href="../views/registrarventa.php"><i class="bi bi-card-checklist"></i><span>Registrar Venta</span></a></li>
           <li><a class="dropdown-item" href="scripts/cerrarsesion.php">Cerrar Session</a></li>
         </ul>
       </nav>
