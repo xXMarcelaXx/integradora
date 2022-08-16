@@ -49,7 +49,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
     <header id="header">
       <div class="d-flex flex-column">
         <div class="profile">
-          <img src="../img/07d7a69e-0614-43d5-b6fe-294787c72b22.jfif" alt="" class="img-fluid rounded-circle mt-3">
+          <img src="../img/homero.jfif" alt="" class="img-fluid rounded-circle mt-3">
           <h1 class="text-light"><a href="#"></a></h1>
           <div class="social-links mt-3 text-center">
             <a href="https://www.facebook.com/profile.php?id=100063500375166" class="Facebook"><i class="bi bi-facebook"></i></a>
@@ -166,7 +166,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
         </div>
         <div class="row">
           <div class="col-md-6">
-            <form action="../views/scripts/eliminarCita.php">
+            <form action="../views/scripts/eliminarcita.php">
               <div class="col-md-3">
                 <button type="submit" class="btn btn-secondary">Cancelar Cita</button>
               </div>

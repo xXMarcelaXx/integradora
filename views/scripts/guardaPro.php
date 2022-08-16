@@ -48,7 +48,6 @@
         echo "<div class='alert alert-success'> PRODUCTO REGISTRADO </div>";
         header("refresh:2; ../verPro.php");
 
-    
     }
 
     ?>

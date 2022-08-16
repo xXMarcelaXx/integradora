@@ -67,7 +67,7 @@
                     </div>
                 </form>
                 <div class="row">
-                    <form action="/Integradora/views/scripts/eliminarCita.php">
+                    <form action="scripts/eliminarcita.php">
                             <div class="col-md-3">
                                 <button type="submit" class="btn btn-secondary">Cancelar Cita</button>
                             </div>

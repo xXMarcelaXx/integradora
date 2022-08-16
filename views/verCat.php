@@ -25,20 +25,6 @@ use barber\query\select;
 require("../vendor/autoload.php");
 session_start();
 if($_SESSION['tipo_cuenta'] == 'Administrador'){
-$query = new select();
-
-$cadena = "SELECT cuenta.nombre, concat(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno)as completo,
-         cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta where cuenta.nombre_usuario='XxMarcelaXX'";
-
-$tabla = $query->seleccionar($cadena);
-
-foreach ($tabla as $row) {
-  $nombre = $row->nombre;
-  $completo = $row->completo;
-  $direccion = $row->direccion;
-  $telefono = $row->telefono;
-  $email = $row->correo;
-}
 ?>
 
 <body>
@@ -49,7 +35,7 @@ foreach ($tabla as $row) {
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
-        <img src="../img/07d7a69e-0614-43d5-b6fe-294787c72b22.jfif" alt="" class="img-fluid rounded-circle mt-3">
+        <img src="../img/homero.jfif" alt="" class="img-fluid rounded-circle mt-3">
         <h1 class="text-light"><a href="#"></a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://www.facebook.com/profile.php?id=100063500375166" class="Facebook"><i class="bi bi-facebook"></i></a>
@@ -132,7 +118,7 @@ foreach ($tabla as $row) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form action="scripts/guardaCat.php" method="post">
+                    <form action="scripts/guardacat.php" method="post">
                       <div class="form-row">
                         <div class="input-group mb-3">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-wrench"></i></span>

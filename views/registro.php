@@ -72,10 +72,10 @@
                                     </div>
                                 </div>
                                 <!--Telefono-->
-                                <div class="col-md-6 col-6">
+                               <div class="col-md-6 col-6">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
-                                        <input type="number" class="form-control"required placeholder="Numero de telefono" name="telefono">
+                                        <input type="number" class="form-control"required maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Numero de telefono" name="telefono" >
                                     </div>
                                 </div>
                                 <!--correo-->
