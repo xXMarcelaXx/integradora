@@ -18,11 +18,11 @@
 <?php
 extract($_POST);
 
-if(!ISSET($FI))
-{
-  $FI='';
-  $FF='';
+if (!isset($FI)) {
+  $FI = '';
+  $FF = '';
 }
+
 use barber\query\ejecuta;
 use barber\query\select;
 
@@ -32,7 +32,7 @@ require("../vendor/autoload.php");
 $query = new select();
 
 $cadena = "SELECT cuenta.nombre, concat(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno)as completo,
-         cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta where cuenta.nombre_usuario='". $_SESSION['usuario'] ."'";
+         cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta where cuenta.nombre_usuario='" . $_SESSION['usuario'] . "'";
 
 $tabla = $query->seleccionar($cadena);
 
@@ -144,7 +144,7 @@ foreach ($tabla as $row) {
               $producto_nom = $pro->nombre_producto;
               $descripcion = $pro->descripcion;
               $precio = $pro->costo;
-              $img_producto=$pro->img_producto;
+              $img_producto = $pro->img_producto;
               $id = $pro->id_producto;
               $existencia = $pro->existencia;
 
@@ -152,7 +152,7 @@ foreach ($tabla as $row) {
 
               <div class="container">
                 <div class="row p-2 bg-white border rounded">
-                  <div class="col-md-3 mt-1"><img data-toggle="popover" width="35%" class="img-fluid img-responsive rounded product-image" src="../<?php echo$pro->img_producto; ?>">
+                  <div class="col-md-3 mt-1"><img data-toggle="popover" width="35%" class="img-fluid img-responsive rounded product-image" src="../<?php echo $pro->img_producto; ?>">
                   </div>
                   <div class="col-md-6 mt-1">
                     <h5><?php echo $producto_nom; ?></h5>
@@ -180,8 +180,8 @@ foreach ($tabla as $row) {
                 </div>
 
               </div>
-            <?php } 
-            echo$_SESSION['usuario'];
+            <?php }
+            echo $_SESSION['usuario'];
             ?>
 
 
@@ -296,7 +296,7 @@ foreach ($tabla as $row) {
         <?php
         require("../vendor/autoload.php");
         $query4 = new select();
-        $cadena2 = "CALL barberia.OrdenClientePeriodo('$FI','$FF','". $_SESSION['usuario'] ."')";
+        $cadena2 = "CALL barberia.OrdenClientePeriodo('$FI','$FF','" . $_SESSION['usuario'] . "')";
         $tabla = $query4->seleccionar($cadena2);
 
 
@@ -326,9 +326,9 @@ foreach ($tabla as $row) {
                 <td><?php echo $registro->total ?></td>
               </tr>
             <?php
-            
 
-                  }        ?>
+
+            }        ?>
           </tbody>
         </table>
 
@@ -347,7 +347,7 @@ foreach ($tabla as $row) {
 
           require "../vendor/autoload.php";
           $query = new select();
-          $cadena = "SELECT * FROM cuenta WHERE cuenta.nombre_usuario = '".$_SESSION['usuario']."'";
+          $cadena = "SELECT * FROM cuenta WHERE cuenta.nombre_usuario = '" . $_SESSION['usuario'] . "'";
           $tabla = $query->seleccionar($cadena);
           foreach ($tabla as $reg) {
           }
@@ -420,10 +420,11 @@ foreach ($tabla as $row) {
                                         ">
                         </div>
                       </div>
-                      <!-- <div class="col-md-6">
+                      <div class="col-md-6">
                         <!-- Button trigger modal -->
+                        <a href="../../views/editarbarbero.php?id=<?php echo $reg->nombre_usuario ?>" class="btn btn-outline-secondary">Modificar Datos</a>
 
-                      </div> 
+                      </div>
                   </form>
                   <!--sueldo-->
                 </div>
