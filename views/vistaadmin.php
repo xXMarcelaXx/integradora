@@ -25,20 +25,7 @@ use barber\query\select;
 require("../vendor/autoload.php");
 session_start();
 if($_SESSION['tipo_cuenta'] == 'Administrador'){
-$query = new select();
 
-$cadena = "SELECT cuenta.nombre, concat(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno)as completo,
-         cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta where cuenta.nombre_usuario='XxMarcelaxX'";
-
-$tabla = $query->seleccionar($cadena);
-
-foreach ($tabla as $row) {
-  $nombre = $row->nombre;
-  $completo = $row->completo;
-  $direccion = $row->direccion;
-  $telefono = $row->telefono;
-  $email = $row->correo;
-}
 ?>
 
 <body>
@@ -165,7 +152,7 @@ foreach ($tabla as $row) {
         <div class="col-md-4">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Gancias</h5>
+              <h5 class="card-title">Ganancias</h5>
               <h6 class="card-subtitle mb-2 text-muted">Esperadas hoy</h6>
               <p class="card-text"><?php echo '$' . $ganancia->Ganancias ?></p>
               <p>Fecha: <?php echo $DateAndTime ?></p>
