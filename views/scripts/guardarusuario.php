@@ -18,11 +18,11 @@
         <?php
         $date = date('Y-m-d');
 
-        use barber\Query\ejecuta;
+        use barber\Query\ejecutal;
         use barber\Query\select;
 
         require("../../vendor/autoload.php");
-        $insert = new ejecuta();
+        $insert = new ejecutal();
 
         extract($_POST);
         if ($nombre_usuario) {
@@ -31,7 +31,7 @@
 
             $cadena = "INSERT INTO cuenta VALUES('$nombre_usuario','$hash','$nombre','$ap_paterno','$ap_materno','$direccion','$telefono','$correo','','$TP','$date')";
 
-            $insert->eje($cadena);
+            $insert->ejecutar($cadena);
         ?>
 
         <?php
