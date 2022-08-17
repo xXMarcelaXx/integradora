@@ -229,7 +229,7 @@ foreach ($tabla as $row) {
 
 
                 $query = new select();
-                $cadena = "SELECT id_horario, horarios from HORARIOS LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH 
+                $cadena = "SELECT id_horario, horarios from horarios LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH 
                             from citas inner join horarios on horarios.id_horario=citas.hora_cita where fecha='" . $_SESSION['fecha'] . "' and citas.status='Pendiente')
                             as HF on horarios.id_horario = HF.IH  where HF.HH is null;";
 
