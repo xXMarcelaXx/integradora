@@ -197,21 +197,31 @@ foreach ($tabla as $row) {
       <section>
         <h2>Citas</h2>
         <br>
+        <?php $date = date('Y-m-d');?>
         <div class="row">
           <div class="col-md-3">
             <form action="profile2.php#citas" method="POST">
+            
               <h5><label for="fecha">Ingresa fecha "Año-Dia-Mes"</label></h5>
-              <input type="date" name="fecha" id="fecha" class="form-select" required><br>
+              <input type="date" name="fecha" id="fecha" class="form-select" required min="<?php echo  $date ?>"><br>
               <Button type="submit" class="btn btn-outline-info btn-lg btn-block">Comprobar fecha</Button>
             </form>
           </div>
           <div class="col-md-3">
             <form action="scripts/agendarCita.php" method="POST">
               <?php
-              $date = date('Y-m-d');
+              
               $fecha = $date;
               require('../vendor/autoload.php');
 
+              $ccc = new select();
+              $c = "SELECT citas.Usuario_C 'count' FROM citas INNER JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C 
+              inner join servicio_cita on servicio_cita.dt_cita = citas.id_citas
+              INNER JOIN servicios ON servicios.id_servicio = servicio_cita.servicio_sc
+              WHERE citas.fecha = '$date' and cuenta.nombre_usuario='".$_SESSION['usuario']."' and citas.Status = 'Pendiente'";
+              $cc = $ccc->seleccionar($c);
+              extract($_POST);
+              if ($cc == null || $cc < 1) {
               extract($_POST);
               if ($fecha >= $date) {
 
@@ -225,7 +235,16 @@ foreach ($tabla as $row) {
 
                 $reg = $query->seleccionar($cadena);
               }
-
+              echo "<br>";
+            }
+            else{
+              ?>
+              <div class="col-md-12">
+              <?php
+              echo "<p>Ya tienes una cita pendiente, Cancelala para agendar otra</p>";
+              ?></div>
+              <?php
+            }
               echo
               "<div class='md-3'>
                                 <label class='control-label'>

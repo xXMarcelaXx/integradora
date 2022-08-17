@@ -10,7 +10,7 @@ class citas
     public function CITA($fecha, $horario)
     {
         $insert = new ejecuta();
-        $cadena = "INSERT INTO citas(Usuario_c, fecha, hora_cita, Status) VALUES('Invitado','$fecha'," . intval($horario) . ",'Pendiente')";
+        $cadena = "INSERT INTO citas(Usuario_c, fecha, hora_cita, Status) VALUES('".$_SESSION['usuario']."','$fecha'," . intval($horario) . ",'Pendiente')";
         $insert->ejecutar($cadena);
     }
     public function SERVICIO($serv1, $serv2)
