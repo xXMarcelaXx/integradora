@@ -145,7 +145,7 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
               echo "<tr>";
               echo "<td> $registro->categoria</td>";
             ?>
-              <td><a href="editarcat.php?id=<?php echo $registro->id_catproducto ?>" class="btn btn-secondary">Editar</a></td>
+              <td><a href="editarCat.php?id=<?php echo $registro->id_catproducto ?>" class="btn btn-secondary">Editar</a></td>
             <?php
               echo "</tr>";
             }
