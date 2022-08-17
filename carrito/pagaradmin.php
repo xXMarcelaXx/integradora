@@ -26,7 +26,7 @@
         }
         $usuario=new ejecuta();
         $resultado=new ejecuta();
-      $cadena="INSERT INTO orden_ventas_producto VALUES ('','".$_SESSION['usuario']."','$fecha','Pendiente')";
+      $cadena="INSERT INTO orden_ventas_producto VALUES ('','".$_SESSION['usuario']."','$fecha','Finalizada')";
        $usuario->ejecutar($cadena);
 
 
