@@ -41,9 +41,6 @@
 		<nav>
 			<a class="icon-facebook-squared" href="https://www.facebook.com/profile.php?id=100063500375166">Facebook</a>
 			<a  class="icon-instagram" href="https://www.instagram.com/Classic.Cuts_Barberia/">Instagram</a>
-			<div class="d-md-none d-xs-block">
-			 <button type="button" class="btn btn-outline-light"><a href="../integradora/views/iniciosesion.php" style="color: #ffff;">Iniciar Sesion</a></button>
-			</div>
 		</nav>
 		<label for="btn-menu" class="icon-login"></label>
 	</div>

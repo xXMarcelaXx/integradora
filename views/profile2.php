@@ -88,12 +88,12 @@ foreach ($tabla as $row) {
             <li><a class="dropdown-item " href="#perfil">Perfil</a></li>
             <li><a class="dropdown-item" href="#historial">Pedidos</a></li>
             <li><a class="dropdown-item" href="#contactanos">Contactanos</a></li>
-            <li><a class="dropdown-item" href="scripts/cerrarsesion.php">Contactanos</a></li>
+            <li><a class="dropdown-item" href="scripts/cerrarsesion.php">Cerrar Sesion</a></li>
 
             <li><button>Cerrar Sesion</button></li>
 
           </ul>
-        </div>ƒ
+        </div>
       </div>
 
     </div>
