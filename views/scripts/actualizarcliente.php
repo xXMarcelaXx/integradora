@@ -21,17 +21,12 @@
 
     require("../../vendor/autoload.php");
     $insert = new ejecuta();
-    if ($contraseña != $Ncontraseña) {
-        echo "<div class='alert alert-danger'><h3> ¡Contraseñas Diferentes! </h3></div>";
-        header("refresh:2; ../Barberos.php");
-    } else if($contraseña = $Ncontraseña){
-        
-        $cadena = "UPDATE cuenta SET nombre='$nombre',contraseña=$contraseña,ap_paterno='$ap_paterno',ap_materno='$ap_materno',direccion='$direccion',telefono='$telefono',correo='$correo',imagen_cuenta='$imagen_cuenta'
+        $cadena = "UPDATE cuenta SET nombre='$nombre',ap_paterno='$ap_paterno',ap_materno='$ap_materno',direccion='$direccion',telefono='$telefono'
         WHERE nombre_usuario='$nombre_usuario'";
                 $insert->ejecutar($cadena);
         echo "<div class='alert alert-danger'><h3> ¡Datos modificados Exitosamente! </h3></div>";
-        header("refresh:2; ../Barberos.php");
-    }
+        header("refresh:2; ../profile2.php");
+    
     ?>
 </body>
 

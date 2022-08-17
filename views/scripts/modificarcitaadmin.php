@@ -27,7 +27,7 @@
     $cita->CITAADMIN($servicio, $horario);
 
     header("refresh:3; ../vistaadmin.php");
-    echo "<p>Cita Modificada</p>";
+    echo "<h1>Cita Modificada</h1>";
     ?>
 </body>
 

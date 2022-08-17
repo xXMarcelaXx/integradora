@@ -62,30 +62,7 @@
                                             <input type="text" class="form-control" placeholder="Ingresa tu nombre" name="nombre" value="<?php echo $reg->nombre ?>" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 form-row">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
-                                            <input type="password" class="form-control" placeholder="Nueva contraseña" name="contraseña" value="<?php echo $reg->contraseña ?>" id="password" required>
-                                        </div>
-                                    </div>
-                                    <!--Nombre-->
-                                    <div class="col-md-12">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
-                                            <input type="password" class="form-control" placeholder="Verifica Contraseña" name="Ncontraseña" id="Npassword" required>
-                                            <button class="btn btn-outline-secondary" type="button" onclick="mostrarContrasena2()"><i class="bi bi-eye-fill"></i></button>
-                                        </div>
-                                    </div>
-                                    <script>
-                                        function mostrarContrasena2() {
-                                            var tipo = document.getElementById("Npassword");
-                                            if (tipo.type == "password") {
-                                                tipo.type = "text";
-                                            } else {
-                                                tipo.type = "password";
-                                            }
-                                        }
-                                    </script>
+
 
 
                                     <!--app-->
@@ -121,19 +98,6 @@
                                         </div>
                                     </div>
                                     <!--correo-->
-                                    <div class="col-md-12">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
-                                            <input type="email" class="form-control" placeholder="Correo Electronico" name="correo" value="<?php echo $reg->correo ?>" required>
-                                        </div>
-                                    </div>
-                                    <!--imagen-->
-                                    <div class="col-md-12">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">Foto de Perfil</span>
-                                            <input type="file" class="form-control" name="imagen_cuenta">
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Aceptar</button>

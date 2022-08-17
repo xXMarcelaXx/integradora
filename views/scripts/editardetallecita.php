@@ -8,10 +8,6 @@ require("../../vendor/autoload.php");
 session_start();
 $idc = $_SESSION['idc'];
 $idser=$_SESSION['idser'];
-echo $idc;
-echo "<br>";
-echo $idser;
-
 ?>
 
 <head>
