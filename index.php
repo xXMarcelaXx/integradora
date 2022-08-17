@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="img/logo.jpg">
+	<link rel="shortcut icon" href="../img/logo.png">
     <link rel="stylesheet" href="css/estilo1.css">
 	<link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="css/fontello.css">
@@ -31,7 +31,7 @@
 <!--	--------------->
 
 	<div class="imagen-principal">
-		<img src="../integradora/img/224332370_222076429919035_4220628151061680865_n.jpg" alt="">
+		<img src="img/224332370_222076429919035_4220628151061680865_n.jpg" alt="">
 	</div>
 
 <!--	--------------->
