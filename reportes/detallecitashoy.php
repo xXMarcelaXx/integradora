@@ -108,7 +108,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
             INNER JOIN horarios ON horarios.id_horario = citas.hora_cita
             INNER JOIN servicio_cita ON servicio_cita.dt_cita = citas.id_citas
             INNER JOIN servicios ON servicios.id_servicio = servicio_cita.servicio_sc
-            WHERE servicio_cita.dt_cita = $id) as CI";
+            WHERE servicio_cita.dt_cita = $id and citas.Status='Pendiente') as CI";
                     $tabla = $query->seleccionar($cadena);
                     ?>
                     <table class='table-hover table'>
@@ -132,8 +132,8 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                             foreach ($tabla as $registro) {
                             ?>
                                 <tr>
-                                <?php $_SESSION['idc'] = $registro->idc ?>
-                                <?php $_SESSION['idser'] = $registro->idser ?>
+                                    <?php $_SESSION['idc'] = $registro->idc ?>
+                                    <?php $_SESSION['idser'] = $registro->idser ?>
                                     <td><?php echo $registro->cliente ?></td>
                                     <td><?php echo $registro->fecha ?></td>
                                     <td><?php echo $registro->horario ?></td>
@@ -142,9 +142,40 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                     <td><?php echo $registro->iva ?></td>
                                     <td><?php echo $registro->subtotal ?></td>
                                     <td><?php echo $registro->total ?></td>
-                                    
+
                                     <td><a href="../views/scripts/editardetallecita.php" class="btn btn-secondary">Editar</a></td>
-                                    <td><a href="" class="btn btn-danger">Cancelar</a></td>
+                                    <td>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            Cancelar
+                                        </button>
+                                    </td>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Motivo de la cancelación</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="../views/scripts/citacancelada.php" method="post">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Descripcion</span>
+                                                            <textarea class="form-control" aria-label="With textarea" name="motivo"></textarea>
+                                                        </div>
+                                                        <input type="text" value="<?php echo "$registro->idc" ?>" hidden name="id">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-warning">Confirmar</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </tr>
                             <?php
                             }

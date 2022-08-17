@@ -15,17 +15,18 @@
 use barber\query\ejecuta;
 
 require("../../vendor/autoload.php");
-$id = $_GET['id'];
+
 $insert = new ejecuta();
+extract($_POST);
 
 extract($_POST);
-$cadena = "UPDATE citas SET Status='Cancelada'
+$cadena = "UPDATE citas SET Status='Cancelada',motivo = '$motivo'
 WHERE id_citas='$id'";
 
 $insert->ejecutar($cadena);
-echo "<div class='alert alert-danger'> Cita Cancelada </div>";
 
-header("refresh:2; ../../reportes/citaspendientes.php");
+
+header("refresh:2; ../vistaadmin.php");
 ?>
 </body>
 </html>
