@@ -85,15 +85,13 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
         <!--Tienda-->
         <br>
         <main id="main">
-
-            <div class="container"><br><br>
-   
-            <?php
-if($_POST)
-{
+        <div class="container"><br><br>
+    
+    <?php
+    
     extract($_POST);
-
             $con= new select();
+    
             $cadena="SELECT cp.id_ovproducto as 'FOLIO', cp.nombre_usuario, concat(cp.nombre,' ',cp.ap_paterno,' ',cp.ap_materno) as 'Cliente',
             cp.subtotal as 'SUBTOTAL',cp.iva as 'IVA',cp.total as 'Monto_con_IVA',cp.Status,cp.ovp_fecha from
             (select cuenta.nombre,cuenta.ap_paterno,cuenta.ap_materno,cuenta.nombre_usuario,
@@ -104,9 +102,16 @@ if($_POST)
             from cuenta inner join orden_ventas_producto on cuenta.nombre_usuario=orden_ventas_producto.Usuario_ovp 
             inner join detalle_ovproductos on detalle_ovproductos.ov_productos=orden_ventas_producto.id_ovproducto 
             inner join productos on productos.id_producto=detalle_ovproductos.producto group by orden_ventas_producto.id_ovproducto) as cp
-            where cp.Status='Finalizada' and cp.ovp_fecha between '$fechai' and '$fechaf' ";
+            where cp.Status='Finalizada' and cp.id_ovproducto=$folio";
             $tabla=$con->seleccionar($cadena);
-           
+            if($tabla==null){
+                echo "<div class='alert alert-danger'>FOLIO NO ENCONTRADO</div>";
+    
+                header("refresh:2; ../views/ventas.php");
+            
+            }
+            else{
+                
             echo"<table style='text-align:center' class='table table-hover'>
             <thead class='table-secondary'>
             <tr>
@@ -116,7 +121,6 @@ if($_POST)
             <th>SUBTOTAL</th>
             <th>IVA</th>
             <th>MONTO CON IVA</th>
-            <th></th>
             </tr>
             </thead><tbody>";
            
@@ -129,20 +133,20 @@ if($_POST)
                 echo "<td>$ $registro->SUBTOTAL</td>";
                 echo "<td>$ $registro->IVA</td>";
                 echo "<td>$ $registro->Monto_con_IVA</td>";
-                ?>
-                <td><a href="scripts/verdetalles.php?id=<?php echo $registro->FOLIO?>" class="btn btn-primary">Detalles</a></td>
-                <?php
                 echo"</tr>";
             }
            
             echo "</tbody></table>";
         
+            }
+           
     
-}
-
-?>
-
-            </div>
+    
+    
+    ?>
+    
+    
+        </div>
 
 
 
