@@ -93,7 +93,7 @@ foreach ($tabla as $row) {
             <li><button>Cerrar Sesion</button></li>
 
           </ul>
-        </div>ƒ
+        </div>
       </div>
 
     </div>

@@ -25,7 +25,7 @@
         WHERE nombre_usuario='$nombre_usuario'";
                 $insert->ejecutar($cadena);
         echo "<div class='alert alert-danger'><h3> ¡Datos modificados Exitosamente! </h3></div>";
-        header("refresh:2; ../profile2.php");
+        header("refresh:3; ../profile2.php");
     
     ?>
 </body>
