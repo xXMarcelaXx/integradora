@@ -84,7 +84,32 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
     <!--Tienda-->
     <br>
     <main id="main">
+    <div class="container"><br><br>
+    <h1>Pedidos cancelados</h1>
+    <div class="row">
+    <div class="col-10 col-md-4">
+        <label for="">Ingresa un periodo de busqueda:</label>
+        
+    <form action="#" method="post">
+           <div class="form-row">
+           <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Fecha Inicial</span>
+              <input type="date" class="form-control" name="fechai" placeholder="FECHA INICIAL"required>
+              </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Fecha Final</span>
+              <input type="date" class="form-control" name="fechaf" placeholder="FECHA FINAL"required>
+              <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" name="buscar">Buscar</button>
+      </div>              
+              </div>
 
+           </div>
+         </form><br>
+      </div>
+    </div>
+    <div>
+        
     <?php
 if($_POST)
 {
@@ -129,9 +154,7 @@ if($_POST)
 }
 
 ?>
-            
-
-
+    </div>
 
     </main>
     <br>
