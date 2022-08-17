@@ -84,6 +84,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
     <!--Tienda-->
     <br>
     <main id="main">
+
     <div class="container"><br><br>
     <h1>Pedidos cancelados</h1>
     <div class="row">
@@ -145,6 +146,9 @@ if($_POST)
                 echo "<td> $registro->FOLIO</td>";
                 echo "<td> $registro->ovp_fecha </td>";
                 echo "<td> $registro->Cliente</td>";
+                ?>
+                <td><a href="../views/scripts/verdetalles.php?id=<?php echo $registro->FOLIO?>" class="btn btn-primary">Detalles</a></td>
+                <?php
                 echo"</tr>";
             }
            
@@ -155,6 +159,8 @@ if($_POST)
 
 ?>
     </div>
+
+
 
     </main>
     <br>

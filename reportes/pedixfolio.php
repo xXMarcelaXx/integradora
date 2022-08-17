@@ -84,9 +84,8 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
     <!--Tienda-->
     <br>
     <main id="main">
-
-        
-<?php
+       
+    <?php
 
 extract($_POST);
         $con= new select();
@@ -120,6 +119,7 @@ extract($_POST);
         <th>SUBTOTAL</th>
         <th>IVA</th>
         <th>MONTO CON IVA</th>
+        <th></th>
         </tr>
         </thead><tbody>";
        
@@ -132,6 +132,9 @@ extract($_POST);
             echo "<td>$ $registro->SUBTOTAL</td>";
             echo "<td>$ $registro->IVA</td>";
             echo "<td>$ $registro->Monto_con_IVA</td>";
+            ?>
+            <td><a href="../views/scripts/verdetalles.php?id=<?php echo $registro->FOLIO?>" class="btn btn-primary">Detalles</a></td>
+            <?php
             echo"</tr>";
         }
        
@@ -143,8 +146,6 @@ extract($_POST);
 
 
 ?>
-
-        </div>
 
 
 
