@@ -116,26 +116,26 @@ $hoy = date('y-m-d');
     </div>
     <div>
 
-        <?php
-        if ($_POST) {
-            extract($_POST);
-            $con = new select();
-            $cadena = "SELECT CONI.id_ovproducto as 'FOLIO',CONCAT(CONI.CLIENTE,' ',CONI.paterno,' ',CONI.materno) AS 'Cliente',CONI.FECHA,CONI.SUBTOTAL, 
-            CONI.IVA AS 'IVA', CONI.TOTAL AS 'Monto_con_IVA',CONI.Status,CONI.FECHA FROM
-            (SELECT cuenta.nombre AS 'CLIENTE', cuenta.ap_paterno AS 'paterno', cuenta.ap_materno AS 'materno',
-            cuenta.nombre_usuario, SUM(productos.costo*detalle_ovproductos.cantidad) AS 'SUBTOTAL',
-            SUM((productos.costo*detalle_ovproductos.cantidad)*1.16) AS 'TOTAL',
-            SUM((productos.costo*detalle_ovproductos.cantidad)*0.16) AS 'IVA',
-            orden_ventas_producto.ovp_fecha AS 'FECHA',orden_ventas_producto.id_ovproducto,orden_ventas_producto.Status FROM cuenta 
-            inner JOIN orden_ventas_producto on orden_ventas_producto.Usuario_ovp = cuenta.nombre_usuario
-            INNER JOIN detalle_ovproductos on detalle_ovproductos.id_DetalleProductos = orden_ventas_producto.id_ovproducto
-            INNER JOIN productos on productos.id_producto = detalle_ovproductos.producto
-            INNER JOIN cat_productos on cat_productos.id_catproducto = detalle_ovproductos.ov_productos GROUP by orden_ventas_producto.id_ovproducto)
-             AS CONI where CONI.Status='Pendiente'
-            AND CONI.FECHA between '$fechai' and '$fechaf' ";
-            $tabla = $con->seleccionar($cadena);
+    <?php
+if($_POST)
+{
+    extract($_POST);
 
-            echo "<table style='text-align:center' class='table table-hover'>
+            $con= new select();
+            $cadena="SELECT cp.id_ovproducto as 'FOLIO', cp.nombre_usuario, concat(cp.nombre,' ',cp.ap_paterno,' ',cp.ap_materno) as 'Cliente',
+            cp.subtotal as 'SUBTOTAL',cp.iva as 'IVA',cp.total as 'Monto_con_IVA',cp.Status,cp.ovp_fecha from
+            (select cuenta.nombre,cuenta.ap_paterno,cuenta.ap_materno,cuenta.nombre_usuario,
+             SUM(productos.costo*detalle_ovproductos.cantidad) AS 'subtotal',
+            SUM((productos.costo*detalle_ovproductos.cantidad)*1.16) AS 'total',
+            SUM((productos.costo*detalle_ovproductos.cantidad)*0.16) AS 'iva',orden_ventas_producto.ovp_fecha,orden_ventas_producto.Status,
+            orden_ventas_producto.id_ovproducto
+            from cuenta inner join orden_ventas_producto on cuenta.nombre_usuario=orden_ventas_producto.Usuario_ovp 
+            inner join detalle_ovproductos on detalle_ovproductos.ov_productos=orden_ventas_producto.id_ovproducto 
+            inner join productos on productos.id_producto=detalle_ovproductos.producto group by orden_ventas_producto.id_ovproducto) as cp
+            where cp.Status='Pendiente' and cp.ovp_fecha between '$fechai' and '$fechaf' ";
+            $tabla=$con->seleccionar($cadena);
+           
+            echo"<table style='text-align:center' class='table table-hover'>
             <thead class='table-secondary'>
             <tr>
             <th>FOLIO</th>
@@ -149,28 +149,34 @@ $hoy = date('y-m-d');
             <th></th>
             </tr>
             </thead><tbody>";
-
-            foreach ($tabla as $registro) {
+           
+            foreach($tabla as $registro)
+            {
                 echo "<tr>";
                 echo "<td> $registro->FOLIO</td>";
-                echo "<td> $registro->FECHA</td>";
+                echo "<td> $registro->ovp_fecha</td>";
                 echo "<td> $registro->Cliente</td>";
                 echo "<td>$ $registro->SUBTOTAL</td>";
                 echo "<td>$ $registro->IVA</td>";
                 echo "<td>$ $registro->Monto_con_IVA</td>";
-        ?>
-                <td><a href="../views/scripts/finalizarpedido.php?id=<?php echo $registro->FOLIO ?>" class="btn btn-secondary">Finalizar</a></td>
-                <?php
                 ?>
-                <td><a href="../views/scripts/cancelarpedido.php?id=<?php echo $registro->FOLIO ?>" class="btn btn-danger">Cancelar</a></td>
-        <?php
-                echo "</tr>";
+                <td><a href="../views/scripts/finalizarpedido.php?id=<?php echo $registro->FOLIO?>"  class="btn btn-secondary">Finalizar</a></td>
+                <?php
+               ?>
+               <td><a href="../views/scripts/cancelarpedido.php?id=<?php echo $registro->FOLIO?>"class="btn btn-danger">Cancelar</a></td>
+               <?php
+                ?>
+                <td><a href="../views/scripts/verdetalles.php?id=<?php echo $registro->FOLIO?>" class="btn btn-primary">Detalles</a></td>
+                <?php
+                echo"</tr>";
             }
-
+           
             echo "</tbody></table>";
-        }
+        
+    
+}
 
-        ?>
+?>
     </div>
 </div>
   </main>
