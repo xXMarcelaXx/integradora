@@ -285,6 +285,40 @@ foreach ($tabla as $row) {
 
     </div>
     </div>
+    <hr>
+    <div id="citapen" class="container ">
+      <section>
+        <h1>Cita pendientes</h1>
+        <div class="row">
+          <div class="col-md-12">
+            <?php
+            $cit = new select();
+            $lol = "SELECT * FROM citas JOIN horarios ON horarios.id_horario=citas.hora_cita JOIN servicio_cita on citas.id_citas=servicio_cita.dt_cita JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C JOIN servicios ON servicios.id_servicio=servicio_cita.servicio_sc WHERE citas.Status='Pendiente' AND cuenta.nombre_usuario='". $_SESSION['usuario'] ."'";
+            $resu = $cit->seleccionar($lol);
+            ?>
+            <table class="table">
+              <thead class="table table-dark">
+                <th>Fecha de la cita</th>
+                <th>Horario</th>
+                <th>Servicio</th>
+              </thead>
+              <tbody>
+                <?php
+                foreach($resu as $uwu)
+                {
+                  echo"<tr>";
+                  echo"<td>$uwu->nombre_usuario</td>";
+                  echo"<td>$uwu->horarios</td>";
+                  echo"<td>$uwu->nombre_servicio</td>";
+                }
+                ?>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+     </section>
+    </div>
     <br>
     <hr>
     <div class="container" id="historial">
@@ -345,9 +379,7 @@ foreach ($tabla as $row) {
                 <td><?php echo $registro->total ?></td>
               </tr>
             <?php
-
-
-            }        ?>
+            }?>
           </tbody>
         </table>
 
