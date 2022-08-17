@@ -18,7 +18,7 @@
         extract($_POST);
         if ($contraseña1==$contraseña)
          {
-             $insert->verificareg("$nombre_usuario");
+             $insert->verificareg("$nombre_usuario","$correo");
               $hash=password_hash($contraseña,PASSWORD_DEFAULT);
               $tiempo = date('Y-m-d');
               $cadena="INSERT INTO cuenta VALUES('$nombre_usuario','$hash','$nombre','$ap_paterno','$ap_materno','$direccion','$telefono','$correo','','Usuario','$tiempo')";
