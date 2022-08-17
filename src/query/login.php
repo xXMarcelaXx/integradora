@@ -12,7 +12,7 @@ class login
         try
         {
             $pase=0;
-            $cc= new Database("barberia","root","admin");
+            $cc= new Database("barberia","admin","1234");
              $objetopdo=$cc->getPDO();
              $admin='Administrador';
              $query="SELECT*FROM cuenta WHERE nombre_usuario='$nombre_usuario' and tipo_cuenta='$admin'";
