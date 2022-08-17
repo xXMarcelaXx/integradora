@@ -10,7 +10,7 @@ class ejecuta
     {
         try 
         {
-            $cc = new Database("barberia","admin","1234");
+            $cc = new Database("barberia","bar","admin");
             $objetoPDO= $cc->getPDO();
             $resultado= $objetoPDO->query($qry);
             $fila = $resultado->fetchAll(PDO::FETCH_OBJ);            

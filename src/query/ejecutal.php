@@ -11,7 +11,7 @@ class ejecutal
     {
         try
         {
-            $cc= new Database("barberia","admin","1234");
+            $cc= new Database("barberia","bar","admin");
              $objetopdo=$cc->getPDO();
              $resultado=$objetopdo->query($qry);
              $cc->desconectarDb();
