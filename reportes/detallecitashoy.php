@@ -20,25 +20,13 @@
 </head>
 <?php
 
-use barber\query\select;
+use barber\Query\Select;
 
 require("../vendor/autoload.php");
 session_start();
 if ($_SESSION['tipo_cuenta'] == 'Administrador') {
-    $query = new select();
+    $query = new Select();
 
-    $cadena = "SELECT cuenta.nombre, concat(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno)as completo,
-         cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta where cuenta.nombre_usuario='XxMarcelaXX'";
-
-    $tabla = $query->seleccionar($cadena);
-
-    foreach ($tabla as $row) {
-        $nombre = $row->nombre;
-        $completo = $row->completo;
-        $direccion = $row->direccion;
-        $telefono = $row->telefono;
-        $email = $row->correo;
-    }
 ?>
 
     <body>
@@ -49,7 +37,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
         <header id="header">
             <div class="d-flex flex-column">
                 <div class="profile">
-                    <img src="../img/homero.jfif" alt="" class="img-fluid rounded-circle mt-3">
+                    <img src="../img/07d7a69e-0614-43d5-b6fe-294787c72b22.jfif" alt="" class="img-fluid rounded-circle mt-3">
                     <h1 class="text-light"><a href="#"></a></h1>
                     <div class="social-links mt-3 text-center">
                         <a href="https://www.facebook.com/profile.php?id=100063500375166" class="Facebook"><i class="bi bi-facebook"></i></a>
@@ -105,16 +93,16 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                     <?php
                     $id = $_GET['id'];
                     require "../vendor/autoload.php";
-                    
+
                     $query = new select();
-                    
-                    $cadena = "SELECT CI.cliente,CI.fecha,CI.horario,CI.servicio,CI.des,Ci.iva,CI.subtotal,CI.total
+
+                    $cadena = "SELECT CI.cliente,CI.fecha,CI.horario,CI.servicio,CI.des,Ci.iva,CI.subtotal,CI.total,CI.idc,CI.idser
             FROM
             (SELECT servicio_cita.dt_cita, CONCAT(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno) 'cliente',
-            citas.fecha 'fecha', horarios.horarios 'horario', servicios.nombre_servicio 'servicio',servicios.descripcion 'des',
+            citas.fecha 'fecha', horarios.horarios 'horario', servicios.nombre_servicio 'servicio',servicios.descripcion 'des',citas.id_citas 'idc',
             ((servicios.costo)*0.16) 'iva',
             ((servicios.costo)*1.16) 'total',
-            servicios.costo 'subtotal'
+            servicios.costo 'subtotal',servicios.id_servicio 'ids', servicios.id_servicio 'idser'
             FROM cuenta
             INNER JOIN citas ON cuenta.nombre_usuario = citas.Usuario_C
             INNER JOIN horarios ON horarios.id_horario = citas.hora_cita
@@ -134,14 +122,18 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                 <th>iva</th>
                                 <th>subtotal</th>
                                 <th>total</th>
+                                <th>Editar</th>
+                                <th>Cancelar</th>
                             </tr>
                         </thead>
                         <tbody>
-                        
+
                             <?php
                             foreach ($tabla as $registro) {
                             ?>
                                 <tr>
+                                <?php $_SESSION['idc'] = $registro->idc ?>
+                                <?php $_SESSION['idser'] = $registro->idser ?>
                                     <td><?php echo $registro->cliente ?></td>
                                     <td><?php echo $registro->fecha ?></td>
                                     <td><?php echo $registro->horario ?></td>
@@ -150,11 +142,12 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                     <td><?php echo $registro->iva ?></td>
                                     <td><?php echo $registro->subtotal ?></td>
                                     <td><?php echo $registro->total ?></td>
-
+                                    
+                                    <td><a href="../views/scripts/editardetallecita.php" class="btn btn-secondary">Editar</a></td>
+                                    <td><a href="" class="btn btn-danger">Cancelar</a></td>
                                 </tr>
                             <?php
                             }
-
                             ?>
                         </tbody>
                     </table>
@@ -168,7 +161,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
     <?php
 } else {
     echo "<h1>No se meta donde no le llaman perro</h1>";
-  header("refresh:3;../views/scripts/cerrarsesion.php");
+    header("refresh:3;../views/scripts/cerrarsesion.php");
 }
 
     ?>
