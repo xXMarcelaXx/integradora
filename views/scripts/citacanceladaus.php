@@ -24,7 +24,7 @@ WHERE id_citas='$id'";
 
 $insert->ejecutar($cadena);
 
-echo"<h1 align='center'>CITA CANCELADA</h1>"
+echo"<h1 align='center'>CITA CANCELADA</h1>";
 header("refresh:2; ../profile2.php");
 ?>
 </body>
