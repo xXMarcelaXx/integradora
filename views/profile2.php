@@ -205,7 +205,7 @@ foreach ($tabla as $row) {
             </form>
           </div>
           <div class="col-md-3">
-            <form action="scripts/agendarCita.php" method="POST">
+            <form action="scripts/agendarcita.php" method="POST">
               <?php
               
               $fecha = $date;
