@@ -20,9 +20,8 @@
 </head>
 <?php
 
-use barber\Query\select;
-
 require("../vendor/autoload.php");
+use barber\Query\select;
 session_start();
 if ($_SESSION['tipo_cuenta'] == 'Administrador') {
     $query = new select();
