@@ -1,0 +1,47 @@
+
+.formulario
+{
+background-color:rgba(0, 0, 0, 0.52) ;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+}
+
+.ingresar{
+ background:#4b3621 ; 
+ color: white; 
+ padding: 10px;
+ font-size: 16px;
+ font-weight: 700;
+
+}
+.form-control{
+    background: rgba(0, 0, 0, 0.3);
+    border-style: none;
+    transition: 0,5s ease-in;
+    outline: none;
+    box-shadow: none;
+}
+.form-control ::focus{
+    background: none;
+    box-shadow: none;
+    outline: none;
+}
+.form-control ::placeholder{
+    color: white;
+}
+
+.olvide::hover{
+    color: white;
+    cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+input.tui {text-transform:capitalize;}
