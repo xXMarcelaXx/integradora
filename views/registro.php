@@ -47,21 +47,21 @@
                                 <div class="col-md-12 col-12">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                                        <input type="text" class="form-control" required placeholder="Ingresa tu nombre" name="nombre">
+                                        <input type="text" class="form-control tui" required placeholder="Ingresa tu nombre" name="nombre">
                                     </div>
                                 </div>
                                 <!--app-->
                                 <div class="col-md-6 col-6">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></i></span>
-                                        <input type="text" class="form-control" required placeholder="Apellido Paterno" name="ap_paterno">
+                                        <input type="text" class="form-control tui" required placeholder="Apellido Paterno" name="ap_paterno">
                                     </div>
                                 </div>
                                 <!--apm-->
                                 <div class="col-md-6 col-6">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                                        <input type="text" class="form-control" required placeholder="Apellido Materno" name="ap_materno">
+                                        <input type="text" class="form-control tui" required placeholder="Apellido Materno" name="ap_materno">
                                     </div>
                                 </div>
                                 <!--direccion-->
