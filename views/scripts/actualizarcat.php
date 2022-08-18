@@ -1,5 +1,5 @@
  <?php
-    use barber\query\ejecuta;
+    use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
 
     $insert =new ejecuta();
@@ -10,7 +10,6 @@ $cadena="UPDATE cat_productos SET categoria='$categoria'
 
 
     $insert->ejecutar($cadena);
+        header("Location:../verCat.php");
 
-        header("location:../verCat.php");
-
-    ?>
+?>
