@@ -1,5 +1,5 @@
  <?php
-    use barber\query\Ejecuta;
+    use barber\query\ejecuta;
     require("../../vendor/autoload.php");
 
     $insert =new ejecuta();
