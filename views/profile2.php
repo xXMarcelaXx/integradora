@@ -260,7 +260,7 @@ foreach ($tabla as $row) {
               if ($_POST == null or $fecha < $date) {
                 echo
                 "<div class='col-md-12'>
-                                <button type='submit' class ='btn btn-outline-info btn-lg btn-block' disabled>Agendar Cita</button>
+                                <button type='submit' class ='btn btn-outline-danger btn-lg btn-block' disabled>Agendar Cita</button>
                             </div>";
               } else {
                 echo
