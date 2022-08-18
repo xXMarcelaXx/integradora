@@ -11,16 +11,13 @@
     <div class="container">
 
     <?php
-    use barber\query\ejecuta;
+    use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
-
     $insert =new ejecuta();
 
     extract($_GET);
 $cadena="UPDATE orden_ventas_producto SET Status='Cancelada' 
 where orden_ventas_producto.id_ovproducto='$id'";
-
-
     $insert->ejecutar($cadena);
     echo "<div class='alert alert-success'> CANCELADA </div>";
 
