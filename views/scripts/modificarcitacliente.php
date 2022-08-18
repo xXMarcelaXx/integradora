@@ -11,7 +11,6 @@
 
 <body>
 
-
     <?php
     extract($_POST);
 
