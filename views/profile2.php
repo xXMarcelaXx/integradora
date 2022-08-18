@@ -130,9 +130,6 @@ foreach ($tabla as $row) {
           <div class="d-flex justify-content-center row">
             <?php
 
-
-            require("../vendor/autoload.php");
-
             $query3 = new select();
             $cadena3 = "SELECT * from productos";
             $producto = $query3->seleccionar($cadena3);
@@ -209,7 +206,6 @@ foreach ($tabla as $row) {
               <?php
               
               $fecha = $date;
-              require('../vendor/autoload.php');
 
               $ccc = new select();
               $c = "SELECT citas.Usuario_C 'count' FROM citas INNER JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C 
@@ -350,7 +346,6 @@ foreach ($tabla as $row) {
         </form>
 
         <?php
-        require("../vendor/autoload.php");
         $query4 = new select();
         $cadena2 = "SELECT orden_ventas_producto.id_ovproducto,productos.nombre_producto,detalle_ovproductos.producto,orden_ventas_producto.ovp_fecha,
         productos.costo,(detalle_ovproductos.cantidad*productos.costo)total
@@ -405,7 +400,6 @@ foreach ($tabla as $row) {
         <div class="container">
           <?php
 
-          require "../vendor/autoload.php";
           $query = new select();
           $cadena = "SELECT * FROM cuenta WHERE cuenta.nombre_usuario = '" . $_SESSION['usuario'] . "'";
           $tabla = $query->seleccionar($cadena);
