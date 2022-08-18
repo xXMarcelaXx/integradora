@@ -232,7 +232,7 @@ foreach ($tabla as $row) {
               ?>
                 <div class="col-md-12">
                   <?php
-                  echo "<fieldset style='background-color:azure;'><p>Ya tienes una cita pendiente, Cancelala para agendar otra</p></fieldset>";
+                  echo "<fieldset style='background-color:brown;'><p>Ya tienes una cita pendiente, Cancelala para agendar otra</p></fieldset>";
                   ?></div>
               <?php
               }
