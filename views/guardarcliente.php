@@ -17,10 +17,10 @@
     <div class="container">
         <?php
 
-        use barber\query\ejecuta;
+        use barber\query\Ejecuta;
 
         require("../vendor/autoload.php");
-        $insert = new Ejecuta();
+        $insert = new ejecuta();
         extract($_POST);
         if ($contraseña == $Ncontraseña) {
             $cadena = "UPDATE cuenta SET contraseña='$contraseña',nombre='$nombre',ap_paterno='$ap_paterno',ap_materno='$ap_materno',direccion='$direccion',telefono='$telefono',correo='$correo',imagen_cuenta='$imagen',tipo_cuenta='Usuario',

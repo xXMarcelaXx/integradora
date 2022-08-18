@@ -14,7 +14,7 @@
     use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
 
-    $insert =new Ejecuta();
+    $insert =new ejecuta();
 
     extract($_GET);
 $cadena="UPDATE orden_ventas_producto SET Status='Finalizada' 

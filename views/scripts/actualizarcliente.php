@@ -20,7 +20,7 @@
     use barber\query\Ejecuta;
 
     require("../../vendor/autoload.php");
-    $insert = new Ejecuta();
+    $insert = new ejecuta();
         $cadena = "UPDATE cuenta SET nombre='$nombre',ap_paterno='$ap_paterno',ap_materno='$ap_materno',direccion='$direccion',telefono='$telefono'
         WHERE nombre_usuario='$nombre_usuario'";
                 $insert->ejecutar($cadena);

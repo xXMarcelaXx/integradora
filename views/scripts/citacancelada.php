@@ -12,11 +12,11 @@
 <body>
 <?php
 
-use barber\query\ejecuta;
+use barber\query\Ejecuta;
 
 require("../../vendor/autoload.php");
 
-$insert = new Ejecuta();
+$insert = new ejecuta();
 extract($_POST);
 
 

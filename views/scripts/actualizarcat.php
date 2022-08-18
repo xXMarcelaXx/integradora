@@ -15,7 +15,7 @@
     use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
 
-    $insert =new Ejecuta();
+    $insert =new ejecuta();
 
     extract($_POST);
 $cadena="UPDATE cat_productos SET categoria='$categoria'

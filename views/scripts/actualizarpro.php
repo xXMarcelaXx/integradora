@@ -11,10 +11,10 @@
     <div class="container">
 
     <?php
-    use barber\query\ejecuta;
+    use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
     $ex = $_POST['existencia'];
-    $insert =new Ejecuta();
+    $insert =new ejecuta();
 
     extract($_POST);
 $cadena="UPDATE productos SET nombre_producto='$nombre_producto',precio_compra=$precio_compra,

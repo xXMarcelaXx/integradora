@@ -2,7 +2,7 @@
 use  barber\query\Ejecuta;
 
 include('../../vendor/autoload.php');
-$insert= new Ejecuta();
+$insert= new ejecuta();
 session_start();
 extract($_POST);
 $cadena= "INSERT INTO quejas (motivo,fk_usuario) VALUES ('$message','".$_SESSION['usuario']."')";

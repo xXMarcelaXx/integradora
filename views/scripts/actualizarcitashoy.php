@@ -13,11 +13,11 @@
 </html>
         <?php
 
-        use barber\query\ejecuta;
+        use barber\query\Ejecuta;
 
         require("../../vendor/autoload.php");
         $id = $_GET['id'];
-        $insert = new Ejecuta();
+        $insert = new ejecuta();
 
         extract($_POST);
         $cadena = "UPDATE citas SET Status='Finalizada'

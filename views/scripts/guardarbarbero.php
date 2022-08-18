@@ -17,10 +17,10 @@
     <div class="container">
         <?php
 
-        use barber\query\ejecuta;
+        use barber\query\Ejecuta;
 
         require("../../vendor/autoload.php");
-        $insert = new Ejecuta();
+        $insert = new ejecuta();
         extract($_POST);
         $TP = "Barbero";
         $cadena = "INSERT INTO cuenta VALUES('$nombre_usuario','$contraseña','$nombre','$ap_paterno','$ap_materno','$direccion','$telefono','$correo','$TP')";

@@ -18,8 +18,8 @@ if ($_SESSION['tipo_cuenta']=='Administrador')
             $total=$total+($producto['PRECIO']*$producto['CANTIDAD']);
            
         }
-        $usuario=new Ejecuta();
-        $resultado=new Ejecuta();
+        $usuario=new ejecuta();
+        $resultado=new ejecuta();
       $cadena="INSERT INTO orden_ventas_producto (Usuario_ovp,ovp_fecha,Status)
        VALUES ('admin','$fecha','Finalizada')";
        $usuario->ejecutar($cadena);
