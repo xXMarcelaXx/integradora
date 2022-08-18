@@ -3,7 +3,7 @@
     use barber\query\citas;
 
     require("../../vendor/autoload.php");
-
+    session_start();
     $fecha = $_SESSION['fecha'];
     $_SESSION['horario'] = $horario;
 
