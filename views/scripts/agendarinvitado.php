@@ -25,6 +25,6 @@
     $cita = new citas();
     $cita-> CITA($fecha, $horario);
     echo "<div class='alert alert-success'> ACTUALIZADO </div>";
-    header("refresh:3; ../registrarServicioinv.php")
+    header("refresh:3; ../registrarServicioInv.php")
     
 ?>
