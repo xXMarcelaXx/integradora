@@ -11,11 +11,10 @@
 
 <body>
 
-
     <?php
     extract($_POST);
 
-    use barber\query\CITAS;
+    use barber\query\citas;
 
     require('../../vendor/autoload.php');
     session_start();
