@@ -49,7 +49,6 @@ session_start();
                     <?php
                     $date = date('Y-m-d');
                     $fecha = $date;
-                    require('../../vendor/autoload.php');
 
                     extract($_POST);
                     if ($fecha >= $date) {
@@ -93,10 +92,6 @@ session_start();
                 </div>
             </div>
         </form>
-
-
-        <?php
-        ?>
     </div>
 </body>
 
