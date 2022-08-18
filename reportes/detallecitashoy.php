@@ -21,7 +21,7 @@
 <?php
 
 require("../vendor/autoload.php");
-use barber\Query\select;
+use barber\query\select;
 session_start();
 if ($_SESSION['tipo_cuenta'] == 'Administrador') {
     $query = new select();
