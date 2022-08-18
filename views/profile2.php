@@ -229,7 +229,7 @@ foreach ($tabla as $row) {
 
 
                 $query = new select();
-                $cadena = "SELECT id_horario, horarios from horarios LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH 
+                $cadena = "SELECT id_horario, horarios from HORARIOS LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH 
                             from citas inner join horarios on horarios.id_horario=citas.hora_cita where fecha='" . $_SESSION['fecha'] . "' and citas.status='Pendiente')
                             as HF on horarios.id_horario = HF.IH  where HF.HH is null;";
 
@@ -310,6 +310,11 @@ foreach ($tabla as $row) {
                   echo"<td>$uwu->nombre_usuario</td>";
                   echo"<td>$uwu->horarios</td>";
                   echo"<td>$uwu->nombre_servicio</td>";
+                  echo"</tr>";
+                }
+                if(isset($uwu))
+                {
+                echo"<td colspan='3' align='center'><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#cita'>Cancelar cita</button></td>";
                 }
                 ?>
               </tbody>
@@ -520,5 +525,29 @@ foreach ($tabla as $row) {
   </main>
   <br>
 </body>
+
+<!--Modal-->
+<div class="modal" tabindex="-1" id="cita">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="cita"></button>
+      </div>
+      <div class="modal-body">
+        <form action="scripts/citacanceladaus.php" method="POST">
+          <input type="number" name="id" value="<?php echo"$uwu->id_citas"?>" hidden>
+        <label for="">Ingresa la razon de cancelacion</label>
+        <textarea name="motivo" id="" cols="100" rows="10"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 </html>
