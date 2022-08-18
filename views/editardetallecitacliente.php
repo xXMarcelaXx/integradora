@@ -6,10 +6,14 @@ use barber\query\select;
 
 require("../../vendor/autoload.php");
 session_start();
-$idc = $_SESSION['idc'];
-$idser=$_SESSION['idser'];
-$id_ovcita= $_SESSION['id_ovcita'];
 ?>
+<div hidden>
+    <?php
+    $idc = $_SESSION['idc'];
+    $idser = $_SESSION['idser'];
+    $id_ovcita = $_SESSION['id_ovcita'];
+    ?>
+</div>
 
 <head>
     <meta charset="UTF-8">
@@ -21,9 +25,9 @@ $id_ovcita= $_SESSION['id_ovcita'];
 
 <body>
     <div class="container">
-        <h1>Modifcar Servicios Cita</h1>
+        <h1>Modificar Servicios Cita</h1>
 
-        <form action="../scripts/modificarcitaadmin.php" method="post">
+        <form action="../scripts/modificarcitacliente.php" method="post">
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-3">
@@ -51,7 +55,7 @@ $id_ovcita= $_SESSION['id_ovcita'];
                     if ($fecha >= $date) {
                         $_SESSION['fecha'] = $fecha;
 
-                        $quer = new select();
+                        $quer = new Select();
                         $caden = "SELECT id_horario, horarios from horarios LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH from citas inner join horarios on horarios.id_horario=citas.hora_cita where fecha='" . $_SESSION['fecha'] . "' and citas.status='Pendiente')
                         as HF on horarios.id_horario = HF.IH  where HF.HH is null;";
                         $registro = $quer->seleccionar($caden);
@@ -85,7 +89,7 @@ $id_ovcita= $_SESSION['id_ovcita'];
                     <div class="col-md-3">
                         <button type="submit" class="btn btn-secondary">Guardar Cambios</button>
                     </div>
-                    
+
                 </div>
             </div>
         </form>
