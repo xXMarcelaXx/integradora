@@ -19,10 +19,9 @@
     <title>Classic Cuts</title>
 </head>
 <?php
-
-require("../../vendor/autoload.php");
+    require("../../vendor/autoload.php");
+    use barber\query\select;
 session_start();
-use barber\query\select;
 if ($_SESSION['tipo_cuenta'] == 'Administrador') {
 ?>
 
@@ -88,7 +87,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
     $query=new select();
     extract($_GET);
 
-$cadena="  SELECT orden_ventas_producto.id_ovproducto, productos.nombre_producto,productos.costo,detalle_ovproductos.cantidad, 
+$cadena=" SELECT orden_ventas_producto.id_ovproducto, productos.nombre_producto,productos.costo,detalle_ovproductos.cantidad, 
 sum(productos.costo*detalle_ovproductos.cantidad) as 'SUBTOTAL',
 sum((productos.costo*detalle_ovproductos.cantidad)*0.16) as 'IVA', 
 sum((productos.costo*detalle_ovproductos.cantidad)*1.16) as 'TOTAL' from
