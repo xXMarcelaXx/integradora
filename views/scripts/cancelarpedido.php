@@ -13,7 +13,7 @@
     <?php
     use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
-    $insert =new ejecuta();
+    $insert =new Ejecuta();
 
     extract($_GET);
 $cadena="UPDATE orden_ventas_producto SET Status='Cancelada' 

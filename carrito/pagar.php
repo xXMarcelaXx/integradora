@@ -24,8 +24,8 @@
             $total=$total+($producto['PRECIO']*$producto['CANTIDAD']);
            
         }
-        $usuario=new ejecuta();
-        $resultado=new ejecuta();
+        $usuario=new Ejecuta();
+        $resultado=new Ejecuta();
       $cadena="INSERT INTO orden_ventas_producto (Usuario_ovp,ovp_fecha,Status)
        VALUES ('".$_SESSION['usuario']."','$fecha','Pendiente')";
        $usuario->ejecutar($cadena);

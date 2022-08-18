@@ -18,7 +18,7 @@
 
         require("../../vendor/autoload.php");
 
-        $insert = new ejecuta();
+        $insert = new Ejecuta();
         extract($_POST);
         $cadena = "UPDATE servicios SET nombre_servicio='$nombre_servicio',costo='$costo',descripcion='$descripcion' 
         WHERE id_servicio=$id_servicio";

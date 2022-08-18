@@ -18,7 +18,7 @@
 
         require("../../vendor/autoload.php");
         $id = $_GET['id'];
-        $insert = new ejecuta();
+        $insert = new Ejecuta();
         extract($_POST);
         $cadena = "DELETE FROM quejas WHERE id_quejas=$id";
 

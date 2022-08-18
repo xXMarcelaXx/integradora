@@ -17,7 +17,7 @@
 
         require("../../vendor/autoload.php");
         $id = $_GET['id'];
-        $insert = new ejecuta();
+        $insert = new Ejecuta();
 
         extract($_POST);
         $cadena = "UPDATE citas SET Status='Finalizada'

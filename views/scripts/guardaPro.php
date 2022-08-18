@@ -39,7 +39,7 @@
         $src = $carpeta.$nombre;
         move_uploaded_file($ruta_provisional, $src);
         $imagen = "imgpro/".$nombre;
-        $insert =new ejecuta();
+        $insert =new Ejecuta();
 
         $cadena="INSERT INTO productos 
         (nombre_producto,cat_producto,descripcion,costo,precio_compra,img_producto,existencia) VALUES 

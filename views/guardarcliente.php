@@ -20,7 +20,7 @@
         use barber\query\ejecuta;
 
         require("../vendor/autoload.php");
-        $insert = new ejecuta();
+        $insert = new Ejecuta();
         extract($_POST);
         if ($contraseña == $Ncontraseña) {
             $cadena = "UPDATE cuenta SET contraseña='$contraseña',nombre='$nombre',ap_paterno='$ap_paterno',ap_materno='$ap_materno',direccion='$direccion',telefono='$telefono',correo='$correo',imagen_cuenta='$imagen',tipo_cuenta='Usuario',

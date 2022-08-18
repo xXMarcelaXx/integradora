@@ -14,7 +14,7 @@
     use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
 
-    $insert =new ejecuta();
+    $insert =new Ejecuta();
 
     extract($_POST);
     $cadena="INSERT INTO cat_productos (categoria) VALUES ('$categoria')";

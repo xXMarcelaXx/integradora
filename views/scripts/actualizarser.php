@@ -14,7 +14,7 @@
     use barber\query\ejecuta;
     require("../../vendor/autoload.php");
 
-    $insert =new ejecuta();
+    $insert =new Ejecuta();
 
     extract($_GET);
 $cadena="UPDATE servicios SET nombre_servicio='$nombre_servicio',descripcion='$descripcion',

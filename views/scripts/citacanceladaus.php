@@ -16,7 +16,7 @@ use barber\query\ejecuta;
 
 require("../../vendor/autoload.php");
 
-$insert = new ejecuta();
+$insert = new Ejecuta();
 extract($_POST);
 
 $cadena = "UPDATE citas SET Status='Cancelada',motivo = '$motivo'

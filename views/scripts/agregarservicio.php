@@ -19,7 +19,7 @@
         use barber\query\Ejecuta;
 
         require("../../vendor/autoload.php");
-        $insert = new ejecuta();
+        $insert = new Ejecuta();
         extract($_POST);
         $cadena = "INSERT INTO servicios(nombre_servicio,descripcion,costo) VALUES('$nombre_servicio','$descripcion',$costo)";
 

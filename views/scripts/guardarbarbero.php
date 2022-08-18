@@ -20,7 +20,7 @@
         use barber\query\ejecuta;
 
         require("../../vendor/autoload.php");
-        $insert = new ejecuta();
+        $insert = new Ejecuta();
         extract($_POST);
         $TP = "Barbero";
         $cadena = "INSERT INTO cuenta VALUES('$nombre_usuario','$contraseña','$nombre','$ap_paterno','$ap_materno','$direccion','$telefono','$correo','$TP')";

@@ -14,7 +14,7 @@
     use barber\query\ejecuta;
     require("../../vendor/autoload.php");
     $ex = $_POST['existencia'];
-    $insert =new ejecuta();
+    $insert =new Ejecuta();
 
     extract($_POST);
 $cadena="UPDATE productos SET nombre_producto='$nombre_producto',precio_compra=$precio_compra,

@@ -13,7 +13,7 @@
                 use barber\query\ejecuta;
                 require("../../vendor/autoload.php");
 
-                $insert = new ejecuta();
+                $insert = new Ejecuta();
                 $imagen='';
 
                 if(isset($_FILES["img"]))
