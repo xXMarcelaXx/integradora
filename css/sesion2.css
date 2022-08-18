@@ -35,14 +35,7 @@ box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
     color: white;
     cursor: pointer;
 }
-h1
-{
-    font-family:barber;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    letter-spacing: 0;
-    text-shadow: -3px -3px 3px #e6b68b, 3px -3px 3px #e6b68b, -3px 3px 3px #e6b68b, 3px 3px 3px #e6b68b;
-}
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
