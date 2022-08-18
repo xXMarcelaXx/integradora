@@ -35,7 +35,7 @@
 
         <?php
         }
-        header("refresh:3 ../Usuario.php");
+        header("refresh:3 ../vistaadmin.php");
         ?>
 
     </div>
