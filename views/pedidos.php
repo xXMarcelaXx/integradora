@@ -145,7 +145,7 @@ require("../vendor/autoload.php");
  from cuenta inner join orden_ventas_producto on cuenta.nombre_usuario=orden_ventas_producto.Usuario_ovp 
  inner join detalle_ovproductos on detalle_ovproductos.ov_productos=orden_ventas_producto.id_ovproducto 
  inner join productos on productos.id_producto=detalle_ovproductos.producto group by orden_ventas_producto.id_ovproducto) as cp
- where cp.ovp_fecha ='2022-08-16' and cp.Status='Pendiente'";
+ where cp.ovp_fecha ='$fecha' and cp.Status='Pendiente'";
  $tabla=$consulta->seleccionar($cadena);
 echo $fecha;
  echo"<table style='text-align:center' class='table table-hover'>
