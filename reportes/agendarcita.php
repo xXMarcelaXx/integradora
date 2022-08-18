@@ -102,7 +102,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
             <form action="../views/scripts/agendarinvitado.php" method="POST">
               <?php
               $date = date('Y-m-d');
-              $fecha = $date;
+              /*$fecha = $date;*/
               require('../vendor/autoload.php');
 
               extract($_POST);
