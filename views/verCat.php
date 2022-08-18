@@ -84,23 +84,7 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
   <!--Tienda-->
   <br>
   <main id="main">
-
-
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../css/bootstrap.min.css">
-      <script type="text/javascript" src="../js/bootstrap.bundle.js"></script>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-      <title>Ver Categorias</title>
-    </head>
-
-    <body>
-      <div class="container">
+  <div class="container">
         <h1>Categoria de Productos</h1><br>
 
         <div class="row">
@@ -118,7 +102,7 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form action="scripts/guardacat.php" method="post">
+                    <form action="scripts/guardaCat.php" method="post">
                       <div class="form-row">
                         <div class="input-group mb-3">
                           <span class="input-group-text" id="basic-addon1"><i class="bi bi-wrench"></i></span>
@@ -161,7 +145,7 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
               echo "<tr>";
               echo "<td> $registro->categoria</td>";
             ?>
-              <td><a href="editarcat.php?id=<?php echo $registro->id_catproducto ?>" class="btn btn-secondary">Editar</a></td>
+              <td><a href="editarCat.php?id=<?php echo $registro->id_catproducto ?>" class="btn btn-secondary">Editar</a></td>
             <?php
               echo "</tr>";
             }
@@ -170,11 +154,11 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
             ?>
           </div>
 
-          <div class="col-4"></div>
 
         </div>
 
       </div>
+
 
       <?php
   }
