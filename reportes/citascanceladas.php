@@ -102,7 +102,7 @@ foreach ($tabla as $row) {
 
   <div class="container">
         <div class="row">
-            <h1>citas Canceladas</h1>
+            <h1>Citas Canceladas</h1>
             <div class="row">
                 <form action="#" method="POST">
                     <div class="row">
@@ -133,12 +133,12 @@ foreach ($tabla as $row) {
                 $query = new select();
                 if ($_POST) {
 
-                    $cadena = "SELECT CI.cliente,CI.fecha,CI.servicio,CI.hora,CI.iva,CI.subtotal,CI.total,CI.cita FROM
+                    $cadena = "SELECT CI.cliente,CI.fecha,CI.servicio,CI.hora,CI.iva,CI.subtotal,CI.total,CI.cita,CI.motivo FROM
                 (SELECT CONCAT(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno) AS 'cliente',
                 citas.fecha AS 'fecha', citas.Status AS 'estado', horarios.horarios AS 'hora',
                 servicios.nombre_servicio AS 'servicio', SUM((servicios.costo)*1.16) AS 'total',
                 ((servicios.costo)*0.16) 'iva',
-                servicios.costo 'subtotal',
+                servicios.costo 'subtotal',citas.motivo 'motivo',
                 citas.id_citas 'cita' FROM cuenta INNER JOIN citas on citas.Usuario_C = cuenta.nombre_usuario
                 INNER JOIN horarios on horarios.id_horario = citas.hora_cita
                 INNER JOIN servicio_cita on servicio_cita.dt_cita = citas.id_citas
@@ -153,6 +153,7 @@ foreach ($tabla as $row) {
                                 <th>Fecha</th>
                                 <th>servicio</th>
                                 <th>horario</th>
+                                <th>motivo de Cancelacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -164,6 +165,7 @@ foreach ($tabla as $row) {
                                     <td><?php echo $registro->fecha ?></td>
                                     <td><?php echo $registro->servicio ?></td>
                                     <td><?php echo $registro->hora ?></td>
+                                    <td><?php echo $registro->motivo ?></td>
                                 </tr>
                         <?php
                             }
