@@ -17,11 +17,11 @@
     $insert =new ejecuta();
 
     extract($_POST);
-    $cadena="INSERT INTO cat_productos
-    VALUES('','$categoria')";
+    $cadena="INSERT INTO cat_productos ('$categoria') VALUES ('')";
+;
 
     $insert->ejecutar($cadena);
-    echo "<div class='alert alert-success'> CATEGORIA REGISTRADO </div>";
+    echo "<div class='alert alert-success'> CATEGORIA REGISTRADa </div>";
 
     header("refresh:2; ../verCat.php");
 
