@@ -208,8 +208,10 @@ foreach ($tabla as $row) {
               $fecha = $date;
 
               $ccc = new select();
-              $c = "SELECT count(citas.Usuario_C) 'count' FROM citas INNER JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C WHERE cuenta.nombre_usuario='".$_SESSION['usuario']."' and citas.Status = 'Pendiente'"
-              ;
+              $c = "SELECT citas.Usuario_C'count' FROM citas INNER JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C 
+              inner join servicio_cita on servicio_cita.dt_cita = citas.id_citas
+              INNER JOIN servicios ON servicios.id_servicio = servicio_cita.servicio_sc
+              WHERE cuenta.nombre_usuario='".$_SESSION['usuario']."' and citas.Status = 'Pendiente'";
               $cc = $ccc->seleccionar($c);
               extract($_POST);
               if ($cc == null || $cc < 1) {
