@@ -9,7 +9,7 @@
 <body>
 
     <?php
-    use barber\query\ejecuta;
+    use barber\query\Ejecuta;
 
     require ("../vendor/autoload.php");
     include 'carritoadmin.php';
@@ -26,7 +26,8 @@
         }
         $usuario=new ejecuta();
         $resultado=new ejecuta();
-      $cadena="INSERT INTO orden_ventas_producto VALUES ('','".$_SESSION['usuario']."','$fecha','Finalizada')";
+      $cadena="INSERT INTO orden_ventas_producto orden_ventas_producto (Usuario_ovp,ovp_fecha,Status)
+       VALUES ('".$_SESSION['usuario']."','$fecha','Finalizada')";
        $usuario->ejecutar($cadena);
 
 
@@ -40,7 +41,8 @@
             {
             $idpro=$producto['ID'];
             $canti=$producto['CANTIDAD'];
-          $cadena2="INSERT INTO detalle_ovproductos VALUES('','$idpro', '$canti','$id')";
+          $cadena2="INSERT INTO detalle_ovproductos (producto,cantidad,ov_productos)
+           VALUES('$idpro', '$canti','$id')";
             $usuario->ejecutar($cadena2);
 
             $existencia="SELECT productos.existencia from productos where productos.id_producto=$idpro";
@@ -58,15 +60,9 @@
                 $usuario->ejecutar($update);
 
         }
-       $orden="SELECT productos.nombre_producto , orden_ventas_producto.ovp_fecha, detalle_ovproductos.cantidad,
-        productos.costo, (detalle_ovproductos.cantidad*productos.costo) Total
-        FROM productos INNER JOIN detalle_ovproductos ON productos.id_producto=detalle_ovproductos.producto
-        INNER JOIN orden_ventas_producto ON detalle_ovproductos.ov_productos=orden_ventas_producto.id_ovproducto
-        INNER JOIN cuenta ON orden_ventas_producto.Usuario_ovp=cuenta.nombre_usuario  
-        AND orden_ventas_producto.id_ovproducto=$id";
-        $usuario->ejecutar($orden);
         
         $_SESSION['CARRITO']=NULL;
+        echo "<script> alert('Pedido Confirmado ¡GRACIAS!');</script>";
         header('location: ../views/vistaadmin.php');     
             
     }

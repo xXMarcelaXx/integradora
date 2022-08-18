@@ -103,7 +103,6 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
               <?php
               $date = date('Y-m-d');
               $fecha = $date;
-              require('../vendor/autoload.php');
 
               extract($_POST);
               if ($fecha >= $date) {
