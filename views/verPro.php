@@ -127,7 +127,6 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
                 </div>
                 <div class="modal-body">
                   <?php
-                  require("../vendor/autoload.php");
                   $pr = new select();
                   $pmas = "SELECT pmv.nombre_producto, max( pmv.cantidad) as 'cantidad_de_ventas' from
 (select count(pv.id_producto) as cantidad, pv.nombre_producto from
