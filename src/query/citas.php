@@ -10,7 +10,7 @@ class citas
     public function CITA($fecha, $horario)
     {
         $insert = new ejecuta();
-        $cadena = "INSERT INTO citas(Usuario_c, fecha, hora_cita, Status) VALUES('".$_SESSION['usuario']."','$fecha'," . intval($horario) . ",'Pendiente')";
+        $cadena = "INSERT INTO citas(Usuario_c, fecha, hora_cita, Status) VALUES('" . $_SESSION['usuario'] . "','$fecha'," . intval($horario) . ",'Pendiente')";
         $insert->ejecutar($cadena);
     }
     public function SERVICIO($serv1, $serv2)
@@ -72,12 +72,15 @@ class citas
     }
     public function CITAADMIN($servicio, $horario)
     {
+        $c = new select();
+        $ser = $_SESSION['idser'];
+        $ci = $_SESSION['idc'];
         $servicioup = new select();
-            $servq = "UPDATE servicio_cita set servicio_sc = $servicio where dt_cita = " . $_SESSION['idc'] . "";
-            $reg = $servicioup->seleccionar($servq);
-            $servicioup1 = new select();
-            $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . " WHERE id_citas=" . $_SESSION['idc'] . "";
-            $reg1 = $servicioup1->seleccionar($servq1);
+        $servq = "UPDATE servicio_cita set servicio_sc = $servicio where id_ovcita = " . $_SESSION['id_ovcita'] . "";
+        $reg = $servicioup->seleccionar($servq);
+        $servicioup1 = new select();
+        $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . " WHERE id_citas=" . $_SESSION['idc'] . "";
+        $reg1 = $servicioup1->seleccionar($servq1);
         
     }
 }

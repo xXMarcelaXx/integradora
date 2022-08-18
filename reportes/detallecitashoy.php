@@ -96,13 +96,13 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
 
                     $query = new select();
 
-                    $cadena = "SELECT CI.cliente,CI.fecha,CI.horario,CI.servicio,CI.des,Ci.iva,CI.subtotal,CI.total,CI.idc,CI.idser
+                    $cadena = "SELECT CI.id_ovcita,CI.cliente,CI.fecha,CI.horario,CI.servicio,CI.des,Ci.iva,CI.subtotal,CI.total,CI.idc,CI.idser
             FROM
             (SELECT servicio_cita.dt_cita, CONCAT(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno) 'cliente',
-            citas.fecha 'fecha', horarios.horarios 'horario', servicios.nombre_servicio 'servicio',servicios.descripcion 'des',citas.id_citas 'idc',
+            citas.fecha 'fecha', horarios.horarios 'horario', servicios.nombre_servicio 'servicio',servicios.descripcion 'des',servicio_cita.dt_cita 'idc',
             ((servicios.costo)*0.16) 'iva',
             ((servicios.costo)*1.16) 'total',
-            servicios.costo 'subtotal',servicios.id_servicio 'ids', servicios.id_servicio 'idser'
+            servicios.costo 'subtotal',servicios.id_servicio 'ids', servicio_cita.servicio_sc 'idser',servicio_cita.id_ovcita 'id_ovcita'
             FROM cuenta
             INNER JOIN citas ON cuenta.nombre_usuario = citas.Usuario_C
             INNER JOIN horarios ON horarios.id_horario = citas.hora_cita
@@ -134,6 +134,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                 <tr>
                                     <?php $_SESSION['idc'] = $registro->idc ?>
                                     <?php $_SESSION['idser'] = $registro->idser ?>
+                                    <?php $_SESSION['id_ovcita'] = $registro->id_ovcita ?>
                                     <td><?php echo $registro->cliente ?></td>
                                     <td><?php echo $registro->fecha ?></td>
                                     <td><?php echo $registro->horario ?></td>
