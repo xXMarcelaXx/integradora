@@ -134,65 +134,71 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
                             </div>
                             <div class="modal-body">
                                 <form action="../views/scripts/guardarusuario.php" method="POST">
-                                    <!--Nombre de usuario-->
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
-                                                <input type="text" class="form-control" required placeholder="Username" name="nombre_usuario">
-                                            </div>
-                                        </div>
-                                        <!--contraseña-->
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
-                                                <input type="password" class="form-control" required placeholder="contraseña" name="contraseña">
-                                            </div>
-                                        </div>
-                                        <!--Nombre-->
-                                        <div class="col-md-12">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingresa tu nombre" name="nombre" required>
-                                            </div>
-                                        </div>
-                                        <!--app-->
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                                                <input type="text" class="form-control" placeholder="Apellido Paterno" name="ap_paterno">
-                                            </div>
-                                        </div>
-                                        <!--apm-->
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                                                <input type="text" class="form-control" placeholder="Apellido Materno" name="ap_materno">
-                                            </div>
-                                        </div>
-                                        <!--Nombre-->
-                                        <!--direccion-->
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></i></span>
-                                                <input type="text" class="form-control" placeholder="Direccion/Calle" name="direccion">
-                                            </div>
-                                        </div>
-                                        <!--Telefono-->
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
-                                                <input type="number" class="form-control" placeholder="Numero de telefono" name="telefono" required>
-                                            </div>
-                                        </div>
-                                        <!--correo-->
-                                        <div class="col-md-12">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
-                                                <input type="email" class="form-control" placeholder="Correo Electronico" name="correo" required>
-                                            </div>
-                                        </div>
+                                  <div class="row">
+                                <!--Nombre usuario-->
+                                <div class="col-md-6 col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
+                                        <input type="text" class="form-control"required placeholder=" usuario" name="nombre_usuario">
                                     </div>
+                                </div>
+                                 <!--contraseña-->
+                                 <div class="col-md-6 col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
+                                        <input type="password" class="form-control" required placeholder=" contraseña" name="contraseña">
+                                    </div>
+                                </div>
+                                 <!--contraseña-->
+                                 <div class="col-md-12 col-12">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
+                                        <input type="password" class="form-control" required placeholder="reescribe contraseña" name="contraseña1">
+                                    </div>
+                                </div>
+                                <!--Nombre-->
+                                <div class="col-md-12 col-12">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                                        <input type="text" class="form-control tui" required placeholder="Ingresa tu nombre" name="nombre">
+                                    </div>
+                                </div>
+                                <!--app-->
+                                <div class="col-md-6 col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></i></span>
+                                        <input type="text" class="form-control tui" required placeholder="Apellido Paterno" name="ap_paterno">
+                                    </div>
+                                </div>
+                                <!--apm-->
+                                <div class="col-md-6 col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                                        <input type="text" class="form-control tui" required placeholder="Apellido Materno" name="ap_materno">
+                                    </div>
+                                </div>
+                                <!--direccion-->
+                                <div class="col-md-6 col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+                                        <input type="text" class="form-control" required placeholder="Direccion/Calle" name="direccion">
+                                    </div>
+                                </div>
+                                <!--Telefono-->
+                               <div class="col-md-6 col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-fill"></i></span>
+                                        <input type="number" class="form-control"required maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Numero de telefono" name="telefono" >
+                                    </div>
+                                </div>
+                                <!--correo-->
+                                <div class="col-md-12 col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+                                        <input type="mail" class="form-control" required placeholder="Correo Electronico" name="correo">
+                                    </div>
+                                </div>
+                               </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                         <button type="submit" class="btn btn-primary">Guardar</button>
