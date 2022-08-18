@@ -20,12 +20,12 @@
 </head>
 <?php
 
-use barber\Query\Select;
+use barber\Query\select;
 
 require("../vendor/autoload.php");
 session_start();
 if ($_SESSION['tipo_cuenta'] == 'Administrador') {
-    $query = new Select();
+    $query = new select();
 
 ?>
 
@@ -92,7 +92,6 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                 <div class="row">
                     <?php
                     $id = $_GET['id'];
-                    require "../vendor/autoload.php";
 
                     $query = new select();
 
