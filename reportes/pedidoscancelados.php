@@ -35,7 +35,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
     <header id="header">
         <div class="d-flex flex-column">
             <div class="profile">
-                <img src="../img/homero.jfif" alt="" class="img-fluid rounded-circle mt-3">
+                 <img src="https://i.pinimg.com/originals/3f/30/44/3f30447d3466e1e7fe7a9c4e99550097.jpg" alt="" class="img-fluid rounded-circle mt-3">
                 <h1 class="text-light"><a href="#"></a></h1>
                 <div class="social-links mt-3 text-center">
                     <a href="https://www.facebook.com/profile.php?id=100063500375166" class="Facebook"><i class="bi bi-facebook"></i></a>
