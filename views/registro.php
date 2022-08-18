@@ -92,7 +92,7 @@
                <div class="form-group mx-sm-1 text-right">
                 <span ><font color="white">¿Si tienes cuenta?</font><a class="olvide" href="../views/iniciosesion.php">Inicia sesion</a></span>
                 <br>
-                <a class="icon-login"style="color:white;" href="../../integradora/views/iniciosesion.php">regresar</a>
+                <a class="icon-login"style="color:white;" href="../views/iniciosesion.php">regresar</a>
                </div>
           </form>
         </div>
