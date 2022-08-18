@@ -1,6 +1,5 @@
 <?php
 include 'carritoadmin.php';
-use barber\query\select;
 require("../vendor/autoload.php");
 ?>
 <!DOCTYPE html>
