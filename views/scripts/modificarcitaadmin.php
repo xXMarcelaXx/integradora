@@ -15,7 +15,7 @@
     <?php
     extract($_POST);
 
-    use barber\query\CITAS;
+    use barber\query\citas;
 
     require('../../vendor/autoload.php');
     session_start();
@@ -24,7 +24,7 @@
     $_SESSION['horario'] = $horario;
     $horario=$_SESSION['horario'];
 
-    $cita = new CITAS();
+    $cita = new citas();
     $cita->CITAADMIN($servicio, $horario);
 
     header("refresh:3; ../vistaadmin.php");
