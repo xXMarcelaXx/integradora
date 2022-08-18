@@ -348,43 +348,65 @@ foreach ($tabla as $row) {
         </form>
 
         <?php
-        $us = $_SESSION['usuario'];
-        $query4 = new select();
-        $cadena2 = "SELECT orden_ventas_producto.id_ovproducto,productos.nombre_producto,detalle_ovproductos.producto,orden_ventas_producto.ovp_fecha,
-       productos.costo,(detalle_ovproductos.cantidad*productos.costo)total
-       from cuenta INNER JOIN orden_ventas_producto on orden_ventas_producto.Usuario_ovp = cuenta.nombre_usuario
-       INNER JOIN detalle_ovproductos on detalle_ovproductos.ov_productos = orden_ventas_producto.id_ovproducto
-       INNER JOIN productos on productos.id_producto = detalle_ovproductos.producto
-       WHERE cuenta.nombre_usuario ='$us' AND orden_ventas_producto.Status = 'Pendiente' and 
-       orden_ventas_producto.ovp_fecha between '$FI' and '$FF'";
-        $tabla5 = $query4->seleccionar($cadena2);
-        ?>
-        <?php
+if($_POST)
+{
+  $us=$_SESSION['usuario'];
+    extract($_POST);
 
-        ?>
-        <table class='table-hover table'>
-          <thead class='table-dark'>
+            $con= new select();
+            $cadena="SELECT cp.id_ovproducto as 'FOLIO', cp.nombre_usuario, concat(cp.nombre,' ',cp.ap_paterno,' ',cp.ap_materno) as 'Cliente',
+            cp.subtotal as 'SUBTOTAL',cp.iva as 'IVA',cp.total as 'Monto_con_IVA',cp.Status,cp.ovp_fecha from
+            (select cuenta.nombre,cuenta.ap_paterno,cuenta.ap_materno,cuenta.nombre_usuario,
+             SUM(productos.costo*detalle_ovproductos.cantidad) AS 'subtotal',
+            SUM((productos.costo*detalle_ovproductos.cantidad)*1.16) AS 'total',
+            SUM((productos.costo*detalle_ovproductos.cantidad)*0.16) AS 'iva',orden_ventas_producto.ovp_fecha,orden_ventas_producto.Status,
+            orden_ventas_producto.id_ovproducto
+            from cuenta inner join orden_ventas_producto on cuenta.nombre_usuario=orden_ventas_producto.Usuario_ovp 
+            inner join detalle_ovproductos on detalle_ovproductos.ov_productos=orden_ventas_producto.id_ovproducto 
+            inner join productos on productos.id_producto=detalle_ovproductos.producto group by orden_ventas_producto.id_ovproducto) as cp
+            where cp.Status='Pendiente' and cp.ovp_fecha between '$FI' and '$FF' and cp.nombre_usuario='$us'";
+
+            $tabla=$con->seleccionar($cadena);
+           
+            echo"<table style='text-align:center' class='table table-hover'>
+            <thead class='table-secondary'>
             <tr>
-              <th>Folio</th>
-              <th>Producto</th>
-              <th>Fecha</th>
-              <th>Costo</th>
-              <th>Total</th>
+            <th>FOLIO</th>
+            <th>FECHA</th>
+            <th>CLIENTE</th>
+            <th>SUBTOTAL</th>
+            <th>IVA</th>
+            <th>MONTO CON IVA</th>
+            <th></th>
+            <th></th>
             </tr>
-          </thead>
-          <tbody>
-            <?php
-            foreach ($tabla5 as $registro) {
-            ?>
-              <tr>
-                <td><?php echo $registro->id_ovproducto ?></td>
-                <td><?php echo $registro->nombre_producto ?></td>
-                <td><?php echo $registro->ovp_fecha ?></td>
-                <td><?php echo $registro->costo ?></td>
-                <td><?php echo $registro->total ?></td>
-              </tr>
-            <?php
-            } ?>
+            </thead><tbody>";
+           
+            foreach($tabla as $registro)
+            {
+                echo "<tr>";
+                echo "<td> $registro->FOLIO</td>";
+                echo "<td> $registro->ovp_fecha</td>";
+                echo "<td> $registro->Cliente</td>";
+                echo "<td>$ $registro->SUBTOTAL</td>";
+                echo "<td>$ $registro->IVA</td>";
+                echo "<td>$ $registro->Monto_con_IVA</td>";
+            
+
+                ?>
+                <td><a href="scripts/verdetalleclientes.php?id=<?php echo $registro->FOLIO?>" class="btn btn-info">Detalles</a></td>
+                <td><a href="scripts/cancelarpedidocliente.php?id=<?php echo $registro->FOLIO?>" class="btn btn-danger">Cancelar</a></td>
+
+                <?php
+                echo"</tr>";
+            }
+           
+            echo "</tbody></table>";
+        
+    
+}
+
+?>
           </tbody>
         </table>
 

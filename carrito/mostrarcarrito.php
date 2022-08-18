@@ -27,6 +27,7 @@ require("../vendor/autoload.php");
                         <th width="40%">Producto</th>
                         <th width="15%" class="text-center">Cantidad</th>
                         <th width="20%" class="text-center">Precio</th>
+                        <th width="15%" class="text-center">IVA</th>
                         <th width="20%" class="text-center">Total</th>
                         <th width="5%">---</th>
                     </tr>
