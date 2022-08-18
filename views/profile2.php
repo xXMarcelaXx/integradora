@@ -23,7 +23,6 @@ if (!isset($FI)) {
   $FF = '';
 }
 
-use barber\query\ejecuta;
 use barber\query\select;
 
 include '../carrito/carrito.php';
@@ -70,7 +69,7 @@ foreach ($tabla as $row) {
           <li><a href="#historial"><i class="bi bi-clock-history"></i></i><span>Pedidos</span></a></li>
           <li><a href="#perfil"><i class="bi bi-person-fill"></i><span>Perfil</span></a></li>
           <li><a href="#contactanos"><i class="bi bi-envelope-fill"></i><span>Contactanos</span></a></li>
-          <li><a href="scripts/cerrarSesion.php"><i class="bi bi-door-closed-fill"></i><span><button type="button" class="btn btn-outline-warning">Cerrar Sesion</button></span></a></li>
+          <li><a href="scripts/cerrarsesion.php"><i class="bi bi-door-closed-fill"></i><span><button type="button" class="btn btn-outline-warning">Cerrar Sesion</button></span></a></li>
 
 
         </ul>
@@ -119,7 +118,7 @@ foreach ($tabla as $row) {
 
           <div class="col-md-3">
             <!-- Button trigger modal -->
-            <a href="../carrito/mostrarcarrito.php" type="button" class="btn btn-dark"><i class="bi bi-cart-fill">
+            <a href="../carrito/mostraradmincar.php" type="button" class="btn btn-dark"><i class="bi bi-cart-fill">
               </i>(<?php echo (empty($_SESSION[$SID])) ? 0 : count($_SESSION[$SID]); ?>)</a>
 
 
@@ -291,7 +290,7 @@ foreach ($tabla as $row) {
       <section>
         <h1>Cita pendientes</h1>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 ">
             <?php
             $cit = new select();
             $lol = "SELECT * FROM citas JOIN horarios ON horarios.id_horario=citas.hora_cita JOIN servicio_cita on citas.id_citas=servicio_cita.dt_cita JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C JOIN servicios ON servicios.id_servicio=servicio_cita.servicio_sc WHERE citas.Status='Pendiente' AND cuenta.nombre_usuario='". $_SESSION['usuario'] ."'";
@@ -412,7 +411,7 @@ foreach ($tabla as $row) {
 
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 ">
             <div class="container">
               <div class="card" style="width: 30rem;">
                 <div class="card-body">
