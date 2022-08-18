@@ -51,7 +51,7 @@ $id_ovcita= $_SESSION['id_ovcita'];
                     if ($fecha >= $date) {
                         $_SESSION['fecha'] = $fecha;
 
-                        $quer = new Select();
+                        $quer = new select();
                         $caden = "SELECT id_horario, horarios from horarios LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH from citas inner join horarios on horarios.id_horario=citas.hora_cita where fecha='" . $_SESSION['fecha'] . "' and citas.status='Pendiente')
                         as HF on horarios.id_horario = HF.IH  where HF.HH is null;";
                         $registro = $quer->seleccionar($caden);
