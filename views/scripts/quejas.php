@@ -2,12 +2,12 @@
 use  barber\query\Ejecuta;
 
 include('../../vendor/autoload.php');
-$insert= new ejecuta();
+$insert= new Ejecuta();
 session_start();
 extract($_POST);
-$cadena= "INSERT INTO quejas VALUES ('','$message','".$_SESSION['usuario']."')";
+$cadena= "INSERT INTO quejas (id_quejas,motivo,fk_usuario) VALUES ('','$message','".$_SESSION['usuario']."')";
    
  $insert->ejecutar($cadena);
   echo "<script> alert('Gracias');</script>";
-   header ("refresh:3;  ../../views/profile2.php#contactanos");
+   header ("refresh:3;  ../profile2.php#contactanos");
    ?>
