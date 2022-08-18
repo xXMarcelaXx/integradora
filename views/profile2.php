@@ -346,17 +346,16 @@ foreach ($tabla as $row) {
         </form>
 
         <?php
-      $us=$_SESSION['usuario'];
-      $query4 = new select();
-      $cadena2 = "SELECT orden_ventas_producto.id_ovproducto,productos.nombre_producto,detalle_ovproductos.producto,orden_ventas_producto.ovp_fecha,
-      productos.costo,(detalle_ovproductos.cantidad*productos.costo)total
-      from cuenta INNER JOIN orden_ventas_producto on orden_ventas_producto.Usuario_ovp = cuenta.nombre_usuario
-      INNER JOIN detalle_ovproductos on detalle_ovproductos.ov_productos = orden_ventas_producto.id_ovproducto
-      INNER JOIN productos on productos.id_producto = detalle_ovproductos.producto
-      WHERE cuenta.nombre_usuario ='$us' AND orden_ventas_producto.Status = 'Pendiente' and 
-      orden_ventas_producto.ovp_fecha between '$FI' and '$FF'";
-      $tabla5 = $query4->seleccionar($cadena2);
-
+       $us=$_SESSION['usuario'];
+       $query4 = new select();
+       $cadena2 = "SELECT orden_ventas_producto.id_ovproducto,productos.nombre_producto,detalle_ovproductos.producto,orden_ventas_producto.ovp_fecha,
+       productos.costo,(detalle_ovproductos.cantidad*productos.costo)total
+       from cuenta INNER JOIN orden_ventas_producto on orden_ventas_producto.Usuario_ovp = cuenta.nombre_usuario
+       INNER JOIN detalle_ovproductos on detalle_ovproductos.ov_productos = orden_ventas_producto.id_ovproducto
+       INNER JOIN productos on productos.id_producto = detalle_ovproductos.producto
+       WHERE cuenta.nombre_usuario ='$us' AND orden_ventas_producto.Status = 'Pendiente' and 
+       orden_ventas_producto.ovp_fecha between '$FI' and '$FF'";
+       $tabla5 = $query4->seleccionar($cadena2);
         ?>
         <?php
 
