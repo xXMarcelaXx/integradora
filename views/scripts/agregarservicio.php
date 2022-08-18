@@ -21,7 +21,7 @@
         require("../../vendor/autoload.php");
         $insert = new ejecuta();
         extract($_POST);
-        $cadena = "INSERT INTO servicios(id_servicio,nombre_servicio,descripcion,costo) VALUES('$nombre_servicio','$descripcion',$costo)";
+        $cadena = "INSERT INTO servicios(nombre_servicio,descripcion,costo) VALUES($nombre_servicio,'$descripcion',$costo)";
 
         $insert->ejecutar($cadena);
         ?>
