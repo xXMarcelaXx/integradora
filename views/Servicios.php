@@ -163,7 +163,6 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
     <div class="container">
         <?php
 
-        require "../vendor/autoload.php";
         extract($_POST);
         if ($_POST && $costo > 0) {
             if (isset($_POST['NMA'])) {
