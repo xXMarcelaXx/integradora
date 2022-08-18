@@ -191,11 +191,11 @@ foreach ($tabla as $row) {
       <section>
         <h2>Citas</h2>
         <br>
-        <?php $date = date('Y-m-d');?>
+        <?php $date = date('Y-m-d'); ?>
         <div class="row">
           <div class="col-md-3">
             <form action="profile2.php#citas" method="POST">
-            
+
               <h5><label for="fecha">Ingresa fecha "Año-Dia-Mes"</label></h5>
               <input type="date" name="fecha" id="fecha" class="form-select" required min="<?php echo  $date ?>"><br>
               <Button type="submit" class="btn btn-outline-info btn-lg btn-block">Comprobar fecha</Button>
@@ -204,40 +204,39 @@ foreach ($tabla as $row) {
           <div class="col-md-3">
             <form action="scripts/agendarcita.php" method="POST">
               <?php
-              
+
               $fecha = $date;
 
               $ccc = new select();
-              $c = "SELECT citas.Usuario_C'count' FROM citas INNER JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C 
+              $c = "SELECT citas.Usuario_C 'count' FROM citas INNER JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C 
               inner join servicio_cita on servicio_cita.dt_cita = citas.id_citas
               INNER JOIN servicios ON servicios.id_servicio = servicio_cita.servicio_sc
-              WHERE cuenta.nombre_usuario='".$_SESSION['usuario']."' and citas.Status = 'Pendiente'";
+              WHERE cuenta.nombre_usuario='" . $_SESSION['usuario'] . "' and citas.Status = 'Pendiente'";
               $cc = $ccc->seleccionar($c);
               extract($_POST);
               if ($cc == null || $cc < 1) {
-              extract($_POST);
-              if ($fecha >= $date) {
+                extract($_POST);
+                if ($fecha >= $date) {
 
-                $_SESSION['fecha'] = $fecha;
+                  $_SESSION['fecha'] = $fecha;
 
 
-                $query = new select();
-                $cadena = "SELECT id_horario, horarios from horarios LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH 
+                  $query = new select();
+                  $cadena = "SELECT id_horario, horarios from horarios LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH 
                             from citas inner join horarios on horarios.id_horario=citas.hora_cita where fecha='" . $_SESSION['fecha'] . "' and citas.status='Pendiente')
                             as HF on horarios.id_horario = HF.IH  where HF.HH is null;";
 
-                $reg = $query->seleccionar($cadena);
-              }
-              echo "<br>";
-            }
-            else{
+                  $reg = $query->seleccionar($cadena);
+                }
+                echo "<br>";
+              } else {
               ?>
-              <div class="col-md-12">
+                <div class="col-md-12">
+                  <?php
+                  echo "<p>Ya tienes una cita pendiente, Cancelala para agendar otra</p>";
+                  ?></div>
               <?php
-              echo "<p>Ya tienes una cita pendiente, Cancelala para agendar otra</p>";
-              ?></div>
-              <?php
-            }
+              }
               echo
               "<div class='md-3'>
                                 <label class='control-label'>
@@ -287,7 +286,7 @@ foreach ($tabla as $row) {
           <div class="col-md-12 ">
             <?php
             $cit = new select();
-            $lol = "SELECT * FROM citas JOIN horarios ON horarios.id_horario=citas.hora_cita JOIN servicio_cita on citas.id_citas=servicio_cita.dt_cita JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C JOIN servicios ON servicios.id_servicio=servicio_cita.servicio_sc WHERE citas.Status='Pendiente' AND cuenta.nombre_usuario='". $_SESSION['usuario'] ."'";
+            $lol = "SELECT * FROM citas JOIN horarios ON horarios.id_horario=citas.hora_cita JOIN servicio_cita on citas.id_citas=servicio_cita.dt_cita JOIN cuenta ON cuenta.nombre_usuario = citas.Usuario_C JOIN servicios ON servicios.id_servicio=servicio_cita.servicio_sc WHERE citas.Status='Pendiente' AND cuenta.nombre_usuario='" . $_SESSION['usuario'] . "'";
             $resu = $cit->seleccionar($lol);
             ?>
             <table class="table">
@@ -295,20 +294,23 @@ foreach ($tabla as $row) {
                 <th>Fecha de la cita</th>
                 <th>Horario</th>
                 <th>Servicio</th>
+                <th>Editar</th>
               </thead>
               <tbody>
                 <?php
-                foreach($resu as $uwu)
-                {
-                  echo"<tr>";
-                  echo"<td>$uwu->nombre_usuario</td>";
-                  echo"<td>$uwu->horarios</td>";
-                  echo"<td>$uwu->nombre_servicio</td>";
-                  echo"</tr>";
+                foreach ($resu as $uwu) {
+                  $_SESSION['id_cita'] = $uwu->id_citas;
+                  $_SESSION['id_servicio'] = $uwu->id_servicio;
+                  $_SESSION['id_ovcita'] = $uwu->id_ovcita;
+                  echo "<tr>";
+                  echo "<td>$uwu->nombre_usuario</td>";
+                  echo "<td>$uwu->horarios</td>";
+                  echo "<td>$uwu->nombre_servicio</td>";
+                  echo "<td><a href='../views/scripts/editardetallecitacliente.php' class='btn btn-secondary'>Editar</a></td>";
+                  echo "</tr>";
                 }
-                if(isset($uwu))
-                {
-                echo"<td colspan='3' align='center'><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#cita'>Cancelar cita</button></td>";
+                if (isset($uwu)) {
+                  echo "<td colspan='3' align='center'><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#cita'>Cancelar cita</button></td>";
                 }
                 ?>
               </tbody>
@@ -316,7 +318,7 @@ foreach ($tabla as $row) {
 
           </div>
         </div>
-     </section>
+      </section>
     </div>
     <br>
     <hr>
@@ -346,16 +348,16 @@ foreach ($tabla as $row) {
         </form>
 
         <?php
-       $us=$_SESSION['usuario'];
-       $query4 = new select();
-       $cadena2 = "SELECT orden_ventas_producto.id_ovproducto,productos.nombre_producto,detalle_ovproductos.producto,orden_ventas_producto.ovp_fecha,
+        $us = $_SESSION['usuario'];
+        $query4 = new select();
+        $cadena2 = "SELECT orden_ventas_producto.id_ovproducto,productos.nombre_producto,detalle_ovproductos.producto,orden_ventas_producto.ovp_fecha,
        productos.costo,(detalle_ovproductos.cantidad*productos.costo)total
        from cuenta INNER JOIN orden_ventas_producto on orden_ventas_producto.Usuario_ovp = cuenta.nombre_usuario
        INNER JOIN detalle_ovproductos on detalle_ovproductos.ov_productos = orden_ventas_producto.id_ovproducto
        INNER JOIN productos on productos.id_producto = detalle_ovproductos.producto
        WHERE cuenta.nombre_usuario ='$us' AND orden_ventas_producto.Status = 'Pendiente' and 
        orden_ventas_producto.ovp_fecha between '$FI' and '$FF'";
-       $tabla5 = $query4->seleccionar($cadena2);
+        $tabla5 = $query4->seleccionar($cadena2);
         ?>
         <?php
 
@@ -382,7 +384,7 @@ foreach ($tabla as $row) {
                 <td><?php echo $registro->total ?></td>
               </tr>
             <?php
-            }?>
+            } ?>
           </tbody>
         </table>
 
@@ -533,9 +535,9 @@ foreach ($tabla as $row) {
       </div>
       <div class="modal-body">
         <form action="scripts/citacanceladaus.php" method="POST">
-          <input type="number" name="id" value="<?php echo"$uwu->id_citas"?>" hidden>
-        <label for="">Ingresa la razon de cancelacion</label>
-        <textarea name="motivo" id="" cols="100" rows="10"></textarea>
+          <input type="number" name="id" value="<?php echo "$uwu->id_citas" ?>" hidden>
+          <label for="">Ingresa la razon de cancelacion</label>
+          <textarea name="motivo" id="" cols="100" rows="10"></textarea>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
