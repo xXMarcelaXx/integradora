@@ -94,7 +94,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
           <div class="col-md-3">
             <form action="agendarcita.php" method="POST">
               <h6><label for="fecha">Ingresa fecha "Año-Dia-Mes"</label></h6>
-              <input type="date" name="fecha" id="fecha" class="form-select" required min="<?php echo"$date"; ?>"><br>
+              <input type="date" name="fecha" id="fecha" class="form-select" required min="<?php echo"$date"; ?>" value="<?php echo"$fecha" ?>"><br>
               <Button type="submit" class="btn btn-secondary">Comprobar fecha</Button>
             </form>
           </div>
