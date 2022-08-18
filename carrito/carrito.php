@@ -1,7 +1,7 @@
 <?php
 session_start();
 $SID=session_id();
-$mensaje = "";
+
 if (isset($_POST['accion'])) { //resibe el boton accion
     switch ($_POST['accion']) {
         case 'agregar':

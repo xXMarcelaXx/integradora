@@ -74,27 +74,7 @@ require("../vendor/autoload.php");
             </table>
             <div class="container">
 
-<div class="d-flex justify-content-center row">
-    <?php
-    $query3= new select();
-    $cadena3 = "SELECT * from productos";
-    $producto = $query3->seleccionar($cadena3);
-    foreach ($producto as $pro) {
-        $producto_nom = $pro->nombre_producto;
-        $descripcion = $pro->descripcion;
-        $precio = $pro->costo;
-        #$img=$pro->imagene;
-        $id = $pro->id_producto;
-        $existencia = $pro->existencia;
 
-    ?>
-
-    <?php } ?>
-
-
-
-
-</div>
         <?php } else { ?>
 
             <div class="alter alter-success">

@@ -118,7 +118,7 @@ foreach ($tabla as $row) {
 
           <div class="col-md-3">
             <!-- Button trigger modal -->
-            <a href="../carrito/mostraradmincar.php" type="button" class="btn btn-dark"><i class="bi bi-cart-fill">
+            <a href="../carrito/mostrarcarrito.php" type="button" class="btn btn-dark"><i class="bi bi-cart-fill">
               </i>(<?php echo (empty($_SESSION[$SID])) ? 0 : count($_SESSION[$SID]); ?>)</a>
 
 
