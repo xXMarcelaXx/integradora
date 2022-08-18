@@ -14,31 +14,28 @@
 </head>
 
 <body>
-    <div class="container">
+       <div class="container">
         <?php
-        $date = date('Y-m-d');
-
-        use barber\Query\ejecutal;
-        use barber\Query\select;
-
+        use barber\query\ejecutal;
         require("../../vendor/autoload.php");
-        $insert = new ejecutal();
 
+        $insert=new ejecutal();
+       
         extract($_POST);
-        if ($nombre_usuario) {
-            $hash = password_hash($contraseña, PASSWORD_DEFAULT);
-            $TP = "Usuario";
-
-            $cadena = "INSERT INTO cuenta VALUES('$nombre_usuario','$hash','$nombre','$ap_paterno','$ap_materno','$direccion','$telefono','$correo','','$TP','$date')";
-
-            $insert->ejecutar($cadena);
+        if ($contraseña1==$contraseña)
+         {
+             $insert->verificareg("$nombre_usuario","$correo");
+              $hash=password_hash($contraseña,PASSWORD_DEFAULT);
+              $tiempo = date('Y-m-d');
+              $cadena="INSERT INTO cuenta VALUES('$nombre_usuario','$hash','$nombre','$ap_paterno','$ap_materno','$direccion','$telefono','$correo','','Usuario','$tiempo')";
+              $insert->ejecutar($cadena);  
+         }     
+         else
+          {
+            echo"<p><font color='red'>las contraseñas no coinciden</font></p>";
+            header("refresh:3 ; ../registro.php");
+          }    
         ?>
-
-        <?php
-        }
-        header("refresh:3 ../Usuario.php");
-        ?>
-
     </div>
 </body>
 
