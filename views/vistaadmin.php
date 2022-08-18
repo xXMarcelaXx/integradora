@@ -102,9 +102,6 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
       <h1>citas Esperadas hoy</h1>
       <?php
 
-
-
-      require "../vendor/autoload.php";
       $query = new select();
       $cadena = "call barberia.CitasEsperadasDiarias('$DateAndTime');";
       $tabla = $query->seleccionar($cadena);
@@ -130,7 +127,7 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
               <td><?php echo $registro->servicio ?></td>
               <td><?php echo $registro->costo ?></td>
               <td><a href="../views/scripts/actualizarcitashoy.php?id=<?php echo $registro->cita ?>" class="btn btn-secondary">Finalizar</a></td>
-              <td><a href="../reportes/detallecitashoy.php?id=<?php echo $registro->cita ?>" class="btn btn-secondary">Detalles</a></td>
+              <td><a href="../reportes/detallecitashoy.php?id= <?php echo $registro->cita ?>" class="btn btn-secondary">Detalles</a></td>
             </tr>
           <?php
           }
