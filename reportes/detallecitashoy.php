@@ -94,7 +94,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
 
                     $query = new select();
 
-                    $cadena = "SELECT CI.id_ovcita,CI.cliente,CI.fecha,CI.horario,CI.servicio,CI.des,Ci.iva,CI.subtotal,CI.total,CI.idc,CI.idser,CI.idcita
+                    $cadena = "SELECT CI.id_ovcita,CI.cliente,CI.fecha,CI.horario,CI.servicio,CI.des,CI.iva,CI.subtotal,CI.total,CI.idc,CI.idser,CI.idcita
             FROM
             (SELECT servicio_cita.dt_cita, CONCAT(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno) 'cliente',
             citas.fecha 'fecha', horarios.horarios 'horario', servicios.nombre_servicio 'servicio',servicios.descripcion 'des',servicio_cita.dt_cita 'idc',
