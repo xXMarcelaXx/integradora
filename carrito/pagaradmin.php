@@ -55,7 +55,7 @@ if ($_SESSION['tipo_cuenta']=='Administrador')
 
         }
         
-        $_SESSION['CARRITO']=NULL;
+        session_destroy();
         echo "<script> alert('Pedido Confirmado ¡GRACIAS!');</script>";
         header('location: ../views/vistaadmin.php');     
             
