@@ -19,18 +19,13 @@
   <title>Classic Cuts</title>
 </head>
 <?php
-
 use barber\query\select;
-
-require("../vendor/autoload.php");
 session_start();
 if($_SESSION['tipo_cuenta'] == 'Administrador'){
 ?>
 
 <body>
-  <?php
-  $fecha = date('Y-m-d');
-  ?>
+  
   <!--Seccion de Encabezado-->
   <header id="header">
     <div class="d-flex flex-column">
@@ -131,7 +126,9 @@ if($_SESSION['tipo_cuenta'] == 'Administrador'){
       </div>
     </div>
     <?php
+
 require("../vendor/autoload.php");
+
  $consulta= new select();
  echo "<h1>Pedidos pendientes para hoy</h1>";
  $fecha=date('Y-m-d');
