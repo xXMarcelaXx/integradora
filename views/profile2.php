@@ -195,7 +195,6 @@ foreach ($tabla as $row) {
         <div class="row">
           <div class="col-md-3">
             <form action="profile2.php#citas" method="POST">
-
               <h5><label for="fecha">Ingresa fecha "Año-Dia-Mes"</label></h5>
               <input type="date" name="fecha" id="fecha" class="form-select" required min="<?php echo  $date ?>"><br>
               <Button type="submit" class="btn btn-outline-info btn-lg btn-block">Comprobar fecha</Button>
@@ -233,7 +232,7 @@ foreach ($tabla as $row) {
               ?>
                 <div class="col-md-12">
                   <?php
-                  echo "<p>Ya tienes una cita pendiente, Cancelala para agendar otra</p>";
+                  echo "<fieldset style='background-color:LightSalmon;'><p>Ya tienes una cita pendiente, Cancelala para agendar otra</p></fieldset>";
                   ?></div>
               <?php
               }
