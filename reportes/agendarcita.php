@@ -146,7 +146,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
               } else {
                 echo
                 "<div class='col-md-3'>
-                                <button type='submit' class ='btn btn-secondary'>Agendar Cita</button>
+                                <button type='submit' class ='btn btn-danger'>Agendar Cita</button>
                             </div>";
               }
               ?>
