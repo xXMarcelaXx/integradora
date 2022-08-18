@@ -34,6 +34,7 @@ require("../vendor/autoload.php");
                     <?php foreach ($_SESSION[$SID] as $menu => $producto) { ?>
 
                         <tr>
+                        <td width="25%"><?php echo $producto['NOMBRE'] ?></td>
                         <td width="10%" class="text-center"><?php echo $producto['CANTIDAD'] ?></td>
                             <td width="10%" class="text-center">$<?php echo number_format($producto['PRECIO'], 2)  ?></td>
                             <td width="10%" class="text-center">$<?php echo number_format($producto['PRECIO'] * $producto['CANTIDAD'], 2)*1.16-($producto['PRECIO'] * $producto['CANTIDAD']);  ?></td>
