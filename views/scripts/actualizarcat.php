@@ -11,6 +11,6 @@ $cadena="UPDATE cat_productos SET categoria='$categoria'
 
     $insert->ejecutar($cadena);
     echo "<div class='alert alert-success'><h4> Cita Finalizada </h4></div>";
-        header("Location:../verCat.php");
+        header("refresh:2; ../verCat.php");
 
 ?>
