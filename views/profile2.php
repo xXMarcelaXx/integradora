@@ -214,7 +214,7 @@ foreach ($tabla as $row) {
               WHERE citas.fecha = '$date' and cuenta.nombre_usuario='".$_SESSION['usuario']."' and citas.Status = 'Pendiente'";
               $cc = $ccc->seleccionar($c);
               extract($_POST);
-              if ($cc == null || $cc < 1) {
+              if ($cc == null || $cc = 0) {
               extract($_POST);
               if ($fecha >= $date) {
 
