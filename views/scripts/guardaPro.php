@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <title>Registro</title>
+    <title>Guarda pro</title>
 </head>
 <body>
     <div class="container">
@@ -38,7 +38,7 @@
     {
         $src = $carpeta.$nombre;
         move_uploaded_file($ruta_provisional, $src);
-        $imagen = "Imgpro/".$nombre;
+        $imagen = "imgpro/".$nombre;
         $insert =new ejecuta();
 
         $cadena="INSERT INTO productos 
