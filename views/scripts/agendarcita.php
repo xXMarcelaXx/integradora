@@ -2,7 +2,7 @@
     extract($_POST);
     use barber\query\citas;
 
-    require('../../vendor/autoload.php');
+    require("../../vendor/autoload.php");
     session_start();
 
     $fecha = $_SESSION['fecha'];
@@ -11,5 +11,5 @@
     $cita = new citas();
     $cita-> CITA_US($fecha, $horario);
 
-    header('location:../registrarservicios.php');
+    header("location:../registrarServicios.php");
 ?>
