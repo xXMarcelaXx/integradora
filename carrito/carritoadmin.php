@@ -1,6 +1,10 @@
 <?php
 session_start();
-$mensaje = "";
+if ($_SESSION['tipo_cuenta']=='Administrador')
+{
+
+
+
 if (isset($_POST['accion'])) { //resibe el boton accion
     switch ($_POST['accion']) {
         case 'agregar':
@@ -61,4 +65,9 @@ if (isset($_POST['accion'])) { //resibe el boton accion
 
             break;
     }
+}
+}
+else
+{
+    header("refresh:3; ../scripts/cerrarsesion.php");
 }
