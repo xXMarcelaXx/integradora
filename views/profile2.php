@@ -89,8 +89,6 @@ foreach ($tabla as $row) {
             <li><a class="dropdown-item" href="#contactanos">Contactanos</a></li>
             <li><a class="dropdown-item" href="scripts/cerrarsesion.php">Cerrar Sesion</a></li>
 
-            <li><button>Cerrar Sesion</button></li>
-
           </ul>
         </div>
       </div>
@@ -354,7 +352,13 @@ foreach ($tabla as $row) {
         <?php
         require("../vendor/autoload.php");
         $query4 = new select();
-        $cadena2 = "CALL barberia.OrdenClientePeriodo('$FI','$FF','" . $_SESSION['usuario'] . "')";
+        $cadena2 = "SELECT orden_ventas_producto.id_ovproducto,productos.nombre_producto,detalle_ovproductos.producto,orden_ventas_producto.ovp_fecha,
+        productos.costo,(detalle_ovproductos.cantidad*productos.costo)total
+        from cuenta INNER JOIN orden_ventas_producto on orden_ventas_producto.Usuario_ovp = cuenta.nombre_usuario
+        INNER JOIN detalle_ovproductos on detalle_ovproductos.ov_productos = orden_ventas_producto.id_ovproducto
+        INNER JOIN productos on productos.id_producto = detalle_ovproductos.producto
+        WHERE cuenta.nombre_usuario = cliente and orden_ventas_producto.Status = 'Finalizada' and 
+        orden_ventas_producto.ovp_fecha between $FI and $FF";
         $tabla = $query4->seleccionar($cadena2);
 
 

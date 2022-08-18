@@ -52,7 +52,7 @@ $id_ovcita= $_SESSION['id_ovcita'];
                         $_SESSION['fecha'] = $fecha;
 
                         $quer = new Select();
-                        $caden = "SELECT id_horario, horarios from HORARIOS LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH from citas inner join horarios on horarios.id_horario=citas.hora_cita where fecha='" . $_SESSION['fecha'] . "' and citas.status='Pendiente')
+                        $caden = "SELECT id_horario, horarios from horarios LEFT JOIN (SELECT id_horario IH ,hora_cita HC, fecha, horarios.horarios HH from citas inner join horarios on horarios.id_horario=citas.hora_cita where fecha='" . $_SESSION['fecha'] . "' and citas.status='Pendiente')
                         as HF on horarios.id_horario = HF.IH  where HF.HH is null;";
                         $registro = $quer->seleccionar($caden);
                     }
@@ -85,13 +85,13 @@ $id_ovcita= $_SESSION['id_ovcita'];
                     <div class="col-md-3">
                         <button type="submit" class="btn btn-secondary">Guardar Cambios</button>
                     </div>
+                    
                 </div>
             </div>
         </form>
 
 
         <?php
-
         ?>
     </div>
 </body>

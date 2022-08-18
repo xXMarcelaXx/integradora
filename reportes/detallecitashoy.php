@@ -96,12 +96,12 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
 
                     $query = new select();
 
-                    $cadena = "SELECT CI.id_ovcita,CI.cliente,CI.fecha,CI.horario,CI.servicio,CI.des,Ci.iva,CI.subtotal,CI.total,CI.idc,CI.idser
+                    $cadena = "SELECT CI.id_ovcita,CI.cliente,CI.fecha,CI.horario,CI.servicio,CI.des,Ci.iva,CI.subtotal,CI.total,CI.idc,CI.idser,CI.idcita
             FROM
             (SELECT servicio_cita.dt_cita, CONCAT(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno) 'cliente',
             citas.fecha 'fecha', horarios.horarios 'horario', servicios.nombre_servicio 'servicio',servicios.descripcion 'des',servicio_cita.dt_cita 'idc',
             ((servicios.costo)*0.16) 'iva',
-            ((servicios.costo)*1.16) 'total',
+            ((servicios.costo)*1.16) 'total',citas.id_citas 'idcita',
             servicios.costo 'subtotal',servicios.id_servicio 'ids', servicio_cita.servicio_sc 'idser',servicio_cita.id_ovcita 'id_ovcita'
             FROM cuenta
             INNER JOIN citas ON cuenta.nombre_usuario = citas.Usuario_C
@@ -123,7 +123,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                 <th>subtotal</th>
                                 <th>total</th>
                                 <th>Editar</th>
-                                <th>Cancelar</th>
+                                <th>Eliminar Servicio</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -132,7 +132,8 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                             foreach ($tabla as $registro) {
                             ?>
                                 <tr>
-                                    <?php $_SESSION['idc'] = $registro->idc ?>
+                                    <?php $_SESSION['idcita'] = $registro->idc ?>
+                                    <?php $_SESSION['idcit'] = $registro->idcita ?>
                                     <?php $_SESSION['idser'] = $registro->idser ?>
                                     <?php $_SESSION['id_ovcita'] = $registro->id_ovcita ?>
                                     <td><?php echo $registro->cliente ?></td>
@@ -148,25 +149,22 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                     <td>
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            Cancelar
+                                            Eliminar
                                         </button>
                                     </td>
-
+                                    
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Motivo de la cancelación</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">¿Esta seguro de Eliminar el servicio?</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="../views/scripts/citacancelada.php" method="post">
-                                                        <div class="input-group">
-                                                            <span class="input-group-text">Descripcion</span>
-                                                            <textarea class="form-control" aria-label="With textarea" name="motivo"></textarea>
-                                                        </div>
-                                                        <input type="text" value="<?php echo "$registro->idc" ?>" hidden name="id">
+                                                    <form action="../views/scripts/citacanceladahoy.php" method="post">
+                                                        <input type="text" value="<?php echo "$registro->id_ovcita" ?>" hidden name="id">
+                                                        <input type="text" value="<?php echo "$registro->idcita" ?>" hidden name="idcita">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -183,6 +181,35 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                             ?>
                         </tbody>
                     </table>
+                    <?php $icita=$_SESSION['idcit']?>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModa">
+                        Cancelar Cita
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModa" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabe">Motivo de cancelacion</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form action="../views/scripts/citacancelada.php" method="post">
+                                    <div class="modal-body">
+                                        <div class="input-group">
+                                            <span class="input-group-text">Motivo</span>
+                                            <textarea class="form-control" aria-label="With textarea" name="motivo"></textarea>
+                                        </div>
+                                        <input type="text" value="<?php echo "$icita"?>" name="id" hidden>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-warning">Confirmar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

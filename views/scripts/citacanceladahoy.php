@@ -19,10 +19,9 @@ require("../../vendor/autoload.php");
 $insert = new ejecuta();
 extract($_POST);
 
-
-$cadena = "UPDATE citas SET Status='Cancelada',motivo = '$motivo'
-WHERE id_citas='$id'";
-echo "<h1>La cita ha sido cancelada</h1>";
+$cadena = "DELETE FROM servicio_cita
+WHERE servicio_cita.id_ovcita='$id'";
+echo "<h1>Servicio Eliminado</h1>";
 $insert->ejecutar($cadena);
 
 
