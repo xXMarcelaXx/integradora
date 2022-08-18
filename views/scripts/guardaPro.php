@@ -11,7 +11,7 @@
     <div class="container">
 
     <?php
-    use barber\query\ejecuta;
+    use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
     extract($_POST);
     $imagen='';
@@ -41,8 +41,9 @@
         $imagen = "Imgpro/".$nombre;
         $insert =new ejecuta();
 
-        $cadena="INSERT INTO productos VALUES 
-        ('','$nombre_producto','$cat','$descripcion','$precio_venta','$precio_compra','$imagen','$existencia')";
+        $cadena="INSERT INTO productos 
+        (nombre_producto,cat_producto,descripcion,costo,precio_compra,img_producto,existencia) VALUES 
+        ('$nombre_producto','$cat','$descripcion','$precio_venta','$precio_compra','$imagen','$existencia')";
     
         $insert->ejecutar($cadena);
         echo "<div class='alert alert-success'> PRODUCTO REGISTRADO </div>";
