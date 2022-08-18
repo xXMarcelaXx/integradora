@@ -280,6 +280,7 @@ foreach ($tabla as $row) {
               ?>
             </form>
 
+
           </div>
       </section>
 
@@ -507,7 +508,7 @@ foreach ($tabla as $row) {
             <div class="bg-white col-md-4">
               <div class="p-4 rounded shadow-md">
                 <div class="mt-3 mb-3">
-                  <form action="../views/scripts/quejas.php" method="POST">
+                  <form action="scripts/quejas.php" method="POST">
                     <label for="message" class="form-label">Quejas o Sugerencias</label>
                     <textarea name="message" cols="20" rows="6" class="form-control" placeholder="Escribe"></textarea>
                     <br>
