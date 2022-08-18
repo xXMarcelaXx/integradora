@@ -14,7 +14,7 @@
 
         <?php
 
-        use barber\query\ejecuta;
+        use barber\query\Ejecuta;
 
         require("../../vendor/autoload.php");
         $id = $_GET['id'];
