@@ -23,7 +23,7 @@ $cadena="UPDATE cat_productos SET categoria='$categoria'
 
 
     $insert->ejecutar($cadena);
-    echo "<div class='alert alert-success'><h1> ACTUALIZADO </h1></div>";
+    echo "<div class='alert alert-success'>ACTUALIZADO </div>";
         header("refresh:2; ../verCat.php");
 
 ?>
