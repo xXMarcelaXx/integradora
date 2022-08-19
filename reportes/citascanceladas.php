@@ -19,10 +19,8 @@
   <title>Classic Cuts</title>
 </head>
 <?php
-
-use barber\query\select;
-
 require("../vendor/autoload.php");
+use barber\query\select;
 session_start();
 if ($_SESSION['tipo_cuenta'] == 'Administrador') {
 
@@ -114,8 +112,6 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
 
                 <?php
 
-
-                require "../vendor/autoload.php";
                 extract($_POST);
                 $query = new select();
                 if ($_POST) {
