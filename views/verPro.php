@@ -191,7 +191,7 @@ group by id_producto ) as pmv";
                       </div>
 
                       <div class="input-group mb-3">
-                        <input type="file" class="form-control" name="img" required>
+                        <input type="file" class="form-control" name="image" required>
                       </div>
 
                       <?php

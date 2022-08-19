@@ -73,13 +73,15 @@ class citas
     public function CITAADMIN($servicio, $horario)
     {
         $c = new select();
+        echo "<div hidden>";
         $ser = $_SESSION['idser'];
         $ci = $_SESSION['idc'];
+        echo "</div>";
         $servicioup = new select();
-        $servq = "UPDATE servicio_cita set servicio_sc = ".intval($servicio)." where id_ovcita = " . intval($_SESSION['id_ovcita']) . "";
+        $servq = "UPDATE servicio_cita set servicio_sc = $servicio WHERE id_ovcita = " . intval($_SESSION['id_ovcita']) . "";
         $reg = $servicioup->seleccionar($servq);
         $servicioup1 = new select();
-        $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . " WHERE id_citas=" . $_SESSION['idc'] . "";
+        $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . " WHERE id_citas=" . $_SESSION['id_cita'] . "";
         $reg1 = $servicioup1->seleccionar($servq1);
         
     }

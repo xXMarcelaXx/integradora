@@ -18,8 +18,8 @@
         <?php
         $date = date('Y-m-d');
 
-        use barber\Query\ejecutal;
-        use barber\Query\select;
+        use barber\Query\ejecuta;
+       
 
         require("../../vendor/autoload.php");
         $insert = new ejecutal();
