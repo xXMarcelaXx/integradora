@@ -150,7 +150,6 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                     <td><?php echo $registro->servicio ?></td>
                                     <td><?php echo $registro->hora ?></td>
                                     <td><?php echo $registro->motivo ?></td>
-                                    <td><a href="../views/detallecitacancelada?id=<?php echo $registro->cita ?>" class="btn btn-info">Detalles</a></td>
                                 </tr>
                         <?php
                             }
