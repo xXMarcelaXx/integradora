@@ -445,7 +445,7 @@ if($_POST)
             inner join productos on productos.id_producto=detalle_ovproductos.producto group by orden_ventas_producto.id_ovproducto) as cp
             where cp.Status='Finalizada' and cp.ovp_fecha between '$finicial' and '$ffinal' and cp.nombre_usuario='$us'";
 
-            $tabla=$con->seleccionar($cadena);
+            $tabl10=$con->seleccionar($cadena);
            
             echo"<table style='text-align:center' class='table table-hover'>
             <thead class='table-secondary'>
@@ -461,7 +461,7 @@ if($_POST)
             </tr>
             </thead><tbody>";
            
-            foreach($tabla as $registro)
+            foreach($tabla10 as $registro)
             {
                 echo "<tr>";
                 echo "<td> $registro->FOLIO</td>";
