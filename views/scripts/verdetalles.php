@@ -99,7 +99,6 @@ $tabla=$query->seleccionar($cadena);
 echo"<table style='text-align:center' class='table table-hover'>
  <thead class='table-secondary'>
  <tr>
- <th>FOLIO</th>
  <th>PRODUCTO</th>
  <th>PRECIO UNITARIO</th>
  <th>CANTIDAD</th>
@@ -112,7 +111,6 @@ echo"<table style='text-align:center' class='table table-hover'>
  foreach($tabla as $registro)
  {
      echo "<tr>";
-     echo "<td> $registro->id_ovproducto</td>";
      echo "<td> $registro->nombre_producto</td>";
      echo "<td>$ $registro->costo</td>";
      echo "<td> $registro->cantidad</td>";
