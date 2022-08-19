@@ -92,7 +92,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                     <?php
                     $id = $_GET['id'];
 
-                    $query = new select();
+                    $quer = new select();
 
                     $cadena = "SELECT CI.id_ovcita,CI.cliente,CI.fecha,CI.horario,CI.servicio,CI.des,CI.iva,CI.subtotal,CI.total,CI.idc,CI.idser,CI.idcita
             FROM
@@ -107,7 +107,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
             INNER JOIN servicio_cita ON servicio_cita.dt_cita = citas.id_citas
             INNER JOIN servicios ON servicios.id_servicio = servicio_cita.servicio_sc
             WHERE servicio_cita.dt_cita = $id and citas.Status='Pendiente') as CI";
-                    $tabla = $query->seleccionar($cadena);
+                    $tabla = $quer->seleccionar($cadena);
                     ?>
                     <table class='table-hover table'>
                         <thead class='table-dark'>
