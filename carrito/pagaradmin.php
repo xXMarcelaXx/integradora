@@ -1,6 +1,5 @@
 
     <?php
-    
     use barber\query\Ejecuta;
     session_start();
     $usuario=new ejecuta();
