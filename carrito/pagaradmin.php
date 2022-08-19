@@ -26,7 +26,7 @@
         $usuario=new ejecuta();
         $resultado=new ejecuta();
       $cadena="INSERT INTO orden_ventas_producto (Usuario_ovp,ovp_fecha,Status)
-       VALUES ('','admin','$fecha','Finalizada')";
+       VALUES ('admin','$fecha','Finalizada')";
        $usuario->ejecutar($cadena);
 
 
@@ -41,7 +41,7 @@
             $idpro=$producto['ID'];
             $canti=$producto['CANTIDAD'];
           $cadena2="INSERT INTO detalle_ovproductos (producto,cantidad,ov_productos)
-           VALUES('','$idpro', '$canti','$id')";
+           VALUES('$idpro', '$canti','$id')";
             $usuario->ejecutar($cadena2);
 
             $existencia="SELECT productos.existencia from productos where productos.id_producto=$idpro";
