@@ -17,7 +17,7 @@ class ejecuta
         }
         catch(PDOException $e)
         {
-            echo"<p>nombre de usuario o correo en uso</p>";
+            echo $e->getMessage();
         }
     }
 
