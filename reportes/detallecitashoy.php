@@ -131,7 +131,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                             ?>
                                 <tr>
                                     <?php $_SESSION['idcit'] = $registro->idc ?>
-                                    <?php $_SESSION['id_cita'] = $registro->idcita ?>
+                                    <?php $_SESSION['foliocita'] = $registro->idcita ?>
                                     <?php $_SESSION['idser'] = $registro->idser ?>
                                     <?php $_SESSION['id_ovcita'] = $registro->id_ovcita ?>
                                     <td><?php echo $registro->cliente ?></td>
