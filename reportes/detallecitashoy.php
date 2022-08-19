@@ -130,8 +130,8 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                             foreach ($tabla as $registro) {
                             ?>
                                 <tr>
-                                    <?php $_SESSION['idcita'] = $registro->idc ?>
-                                    <?php $_SESSION['idcit'] = $registro->idcita ?>
+                                    <?php $_SESSION['idcit'] = $registro->idc ?>
+                                    <?php $_SESSION['id_cita'] = $registro->idcita ?>
                                     <?php $_SESSION['idser'] = $registro->idser ?>
                                     <?php $_SESSION['id_ovcita'] = $registro->id_ovcita ?>
                                     <td><?php echo $registro->cliente ?></td>
