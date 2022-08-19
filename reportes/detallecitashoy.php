@@ -162,7 +162,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                                 <div class="modal-body">
                                                     <form action="../views/scripts/citacanceladahoy.php" method="post">
                                                         <input type="text" value="<?php echo "$registro->id_ovcita" ?>" hidden name="id">
-                                                        <input type="text" value="<?php echo "$registro->idcita" ?>" hidden name="idcita">
+                                                        <input type="text" value="<?php echo "$registro->idc" ?>" hidden name="idcita">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
