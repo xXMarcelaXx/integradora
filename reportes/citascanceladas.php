@@ -137,7 +137,6 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                 <th>servicio</th>
                                 <th>horario</th>
                                 <th>motivo de Cancelacion</th>
-                                <th>Detalle</th>
                             </tr>
                         </thead>
                         <tbody>
