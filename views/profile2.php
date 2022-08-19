@@ -340,16 +340,16 @@ foreach ($tabla as $row) {
               </div>
             </div>
             <div class="col-md-4">
-              <button type="submit" class="btn btn-outline-secondary" name="pedidos">Ver</button>
+              <button type="submit" class="btn btn-outline-secondary" >Ver</button>
             </div>
           </div>
         </form>
 
         <?php
-if($_POST['pedidos'])
+if($_POST)
 {
   $us=$_SESSION['usuario'];
-    extract($_POST['pedidos']);
+    extract($_POST);
 
             $con= new select();
             $cadena="SELECT cp.id_ovproducto as 'FOLIO', cp.nombre_usuario, concat(cp.nombre,' ',cp.ap_paterno,' ',cp.ap_materno) as 'Cliente',
@@ -405,6 +405,7 @@ if($_POST['pedidos'])
 }
 
 ?>
+         
       </section>
     </div>
     <hr>
