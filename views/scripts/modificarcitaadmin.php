@@ -22,7 +22,7 @@
     extract($_POST);
 
     $_SESSION['horario'] = $horario;
-    $foliiocita = $_SESSION['foliocita'];
+    $foliocita = $_SESSION['foliocita'];
 
     $cita = new CITAS();
     $cita->CITAADMIN($servicio, $horario, $foliocita);
