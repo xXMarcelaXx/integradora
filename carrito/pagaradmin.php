@@ -7,7 +7,7 @@ if ($_SESSION['tipo_cuenta']=='Administrador')
 {
     require ("../vendor/autoload.php");
     include 'carritoadmin.php';
-    $SID=session_id();
+
     if($_POST)
     {
         $fecha = date('Y-m-d');
@@ -55,7 +55,7 @@ if ($_SESSION['tipo_cuenta']=='Administrador')
 
         }
         
-        session_destroy();
+       $_SESSION['CARRITO']=NULL;
         echo "<script> alert('Pedido Confirmado ¡GRACIAS!');</script>";
         header('location: ../views/vistaadmin.php');     
             
