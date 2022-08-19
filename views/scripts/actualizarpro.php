@@ -27,10 +27,9 @@
         $cadena="UPDATE productos SET nombre_producto='$nombre_producto',cat_producto=$cat,descripcion='$descripcion',
         costo=$precio_venta,precio_compra=$precio_compra,img_producto= ('$ruta') ,existencia=$ex WHERE id_producto=$id_producto";
         $insert->ejecutar($cadena);
-    }
-
-    echo "<div class='alert alert-success'> ACTUALIZADO </div>";
+        echo "<div class='alert alert-success'> ACTUALIZADO </div>";
         header("refresh:4; ../verPro.php");
+    }
     ?>
 
     </div>
