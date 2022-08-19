@@ -1,11 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 
     <?php
     use barber\query\Ejecuta;
-    session_start();
-    $usuario=new ejecuta();
-    $resultado=new ejecuta();
-if ($_SESSION['tipo_cuenta']=='Administrador')
-{
     require ("../vendor/autoload.php");
     include 'carritoadmin.php';
 
@@ -19,9 +23,9 @@ if ($_SESSION['tipo_cuenta']=='Administrador')
             $total=$total+($producto['PRECIO']*$producto['CANTIDAD']);
            
         }
-      
-      $cadena="INSERT INTO orden_ventas_producto (Usuario_ovp,ovp_fecha,Status)
-       VALUES ('admin','$fecha','Finalizada')";
+        $usuario=new ejecuta();
+        $resultado=new ejecuta();
+      $cadena="INSERT INTO orden_ventas_producto VALUES ('','".$_SESSION['usuario']."','$fecha','Finalizada')";
        $usuario->ejecutar($cadena);
 
 
@@ -35,8 +39,7 @@ if ($_SESSION['tipo_cuenta']=='Administrador')
             {
             $idpro=$producto['ID'];
             $canti=$producto['CANTIDAD'];
-          $cadena2="INSERT INTO detalle_ovproductos (producto,cantidad,ov_productos)
-           VALUES('$idpro', '$canti','$id')";
+          $cadena2="INSERT INTO detalle_ovproductos VALUES('','$idpro', '$canti','$id')";
             $usuario->ejecutar($cadena2);
 
             $existencia="SELECT productos.existencia from productos where productos.id_producto=$idpro";
@@ -54,12 +57,14 @@ if ($_SESSION['tipo_cuenta']=='Administrador')
                 $usuario->ejecutar($update);
 
         }
+     
         
-       $_SESSION['CARRITO']=NULL;
-        echo "<script> alert('Pedido Confirmado ¡GRACIAS!');</script>";
+        $_SESSION['CARRITO']=NULL;
         header('location: ../views/vistaadmin.php');     
             
     }
    
-}
+   
     ?>
+</body>
+</html>

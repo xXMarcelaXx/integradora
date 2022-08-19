@@ -10,7 +10,6 @@
 
     <?php
     use barber\query\Ejecuta;
-
     require ("../vendor/autoload.php");
     include 'carrito.php';
     $SID=session_id();
