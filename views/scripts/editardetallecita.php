@@ -6,9 +6,11 @@ use barber\query\select;
 
 require("../../vendor/autoload.php");
 session_start();
+echo "<div hidden>";
 $idc = $_SESSION['idc'];
 $idser=$_SESSION['idser'];
 $id_ovcita= $_SESSION['id_ovcita'];
+echo "</div>";
 ?>
 
 <head>
