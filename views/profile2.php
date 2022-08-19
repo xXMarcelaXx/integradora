@@ -349,7 +349,7 @@ foreach ($tabla as $row) {
 if($_POST['pedidos'])
 {
   $us=$_SESSION['usuario'];
-    extract($_POST);
+    extract($_POST['pedidos']);
 
             $con= new select();
             $cadena="SELECT cp.id_ovproducto as 'FOLIO', cp.nombre_usuario, concat(cp.nombre,' ',cp.ap_paterno,' ',cp.ap_materno) as 'Cliente',
@@ -427,7 +427,7 @@ if($_POST['pedidos'])
           </div>
         </form>
         <?php
-if($_POST['finalizados'])
+if($_POST)
 {
     extract($_POST);
 
