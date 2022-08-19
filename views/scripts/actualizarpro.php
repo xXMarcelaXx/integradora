@@ -25,7 +25,7 @@
         
         $ruta = addslashes(file_get_contents($_FILES['image']['tmp_name']));
         $cadena="UPDATE productos SET nombre_producto='$nombre_producto',cat_producto='$cat',descripcion='$descripcion',
-        costo=$precio_venta,precio_compra=$precio_compra,img_producto='$ruta',existencia=$ex WHERE id_producto='$id_producto'";
+        costo='$precio_venta',precio_compra='$precio_compra',img_producto='$ruta',existencia='$ex' WHERE id_producto='$id_producto'";
         $insert->ejecutar($cadena);
     }
 
