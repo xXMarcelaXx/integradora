@@ -3,6 +3,7 @@
 namespace barber\Query;
 
 use barber\query\Ejecuta;
+use barber\query\ejecutal;
 use barber\query\select;
 
 class citas

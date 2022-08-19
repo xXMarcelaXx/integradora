@@ -340,16 +340,16 @@ foreach ($tabla as $row) {
               </div>
             </div>
             <div class="col-md-4">
-              <button type="submit" class="btn btn-outline-secondary">Ver</button>
+              <button type="submit" class="btn btn-outline-secondary" name="pedidos">Ver</button>
             </div>
           </div>
         </form>
 
         <?php
-if($_POST)
+if($_POST['pedidos'])
 {
   $us=$_SESSION['usuario'];
-    extract($_POST);
+    extract($_POST['pedidos']);
 
             $con= new select();
             $cadena="SELECT cp.id_ovproducto as 'FOLIO', cp.nombre_usuario, concat(cp.nombre,' ',cp.ap_paterno,' ',cp.ap_materno) as 'Cliente',
@@ -405,9 +405,85 @@ if($_POST)
 }
 
 ?>
-          </tbody>
-        </table>
+           <h2>Historial de Pedidos</h2>
+   <form action="profile2.php#historial" method="POST">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Fecha Incial</span>
+                <input type="date" class="form-control" placeholder="Fecha Incial" aria-label="Username" aria-describedby="basic-addon1" name="finicial">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Fecha Final</span>
+                <input type="date" class="form-control" placeholder="Fecha Final" aria-label="Username" aria-describedby="basic-addon1" name="ffinal">
 
+              </div>
+            </div>
+            <div class="col-md-4">
+              <button type="submit" class="btn btn-outline-secondary" name="finalizados">Ver</button>
+            </div>
+          </div>
+        </form>
+        <?php
+if($_POST)
+{
+    extract($_POST);
+
+            $con= new select();
+            $cadena="SELECT cp.id_ovproducto as 'FOLIO', cp.nombre_usuario, concat(cp.nombre,' ',cp.ap_paterno,' ',cp.ap_materno) as 'Cliente',
+            cp.subtotal as 'SUBTOTAL',cp.iva as 'IVA',cp.total as 'Monto_con_IVA',cp.Status,cp.ovp_fecha from
+            (select cuenta.nombre,cuenta.ap_paterno,cuenta.ap_materno,cuenta.nombre_usuario,
+             SUM(productos.costo*detalle_ovproductos.cantidad) AS 'subtotal',
+            SUM((productos.costo*detalle_ovproductos.cantidad)*1.16) AS 'total',
+            SUM((productos.costo*detalle_ovproductos.cantidad)*0.16) AS 'iva',orden_ventas_producto.ovp_fecha,orden_ventas_producto.Status,
+            orden_ventas_producto.id_ovproducto
+            from cuenta inner join orden_ventas_producto on cuenta.nombre_usuario=orden_ventas_producto.Usuario_ovp 
+            inner join detalle_ovproductos on detalle_ovproductos.ov_productos=orden_ventas_producto.id_ovproducto 
+            inner join productos on productos.id_producto=detalle_ovproductos.producto group by orden_ventas_producto.id_ovproducto) as cp
+            where cp.Status='Finalizada' and cp.ovp_fecha between '$finicial' and '$ffinal' and cp.nombre_usuario='$us'";
+
+            $tabl10=$con->seleccionar($cadena);
+           
+            echo"<table style='text-align:center' class='table table-hover'>
+            <thead class='table-secondary'>
+            <tr>
+            <th>FOLIO</th>
+            <th>FECHA</th>
+            <th>CLIENTE</th>
+            <th>SUBTOTAL</th>
+            <th>IVA</th>
+            <th>MONTO CON IVA</th>
+            <th></th>
+            <th></th>
+            </tr>
+            </thead><tbody>";
+           
+            foreach($tabla10 as $registro)
+            {
+                echo "<tr>";
+                echo "<td> $registro->FOLIO</td>";
+                echo "<td> $registro->ovp_fecha</td>";
+                echo "<td> $registro->Cliente</td>";
+                echo "<td>$ $registro->SUBTOTAL</td>";
+                echo "<td>$ $registro->IVA</td>";
+                echo "<td>$ $registro->Monto_con_IVA</td>";
+            
+
+                ?>
+                <td><a href="scripts/verdetalleclientes.php?id=<?php echo $registro->FOLIO?>" class="btn btn-info">Detalles</a></td>
+
+                <?php
+                echo"</tr>";
+            }
+           
+            echo "</tbody></table>";
+        
+    
+}
+
+?>
 
       </section>
     </div>

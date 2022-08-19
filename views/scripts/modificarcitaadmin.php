@@ -25,7 +25,7 @@
     $horario=$_SESSION['horario'];
 
     $cita = new citas();
-    $cita->CITAADMIN($servicio, $horario);
+    $cita->CITACLIENTE($servicio, $horario);
 
     header("refresh:3; ../vistaadmin.php");
     echo "<h1>Cita Modificada</h1>";
