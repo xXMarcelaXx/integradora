@@ -145,7 +145,6 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                             ?>
                         </tbody>
                     </table>
-                    <?php $icita = $_SESSION['idcit'] ?>
                 </div>
             </div>
 
