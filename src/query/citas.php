@@ -3,6 +3,7 @@
 namespace barber\Query;
 
 use barber\query\Ejecuta;
+use barber\query\ejecutal;
 use barber\query\select;
 
 class citas
@@ -73,10 +74,8 @@ class citas
     public function CITAADMIN($servicio, $horario)
     {
         $c = new select();
-        echo "<div hidden>";
         $ser = $_SESSION['idser'];
         $ci = $_SESSION['idc'];
-        echo "</div>";
         $servicioup = new select();
         $servq = "UPDATE servicio_cita set servicio_sc = $servicio WHERE id_ovcita = " . intval($_SESSION['id_ovcita']) . "";
         $reg = $servicioup->seleccionar($servq);
