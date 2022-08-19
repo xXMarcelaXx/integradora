@@ -76,13 +76,12 @@ class citas
         $c = new select();
         echo "<div hidden>";
         $ser = $_SESSION['idser'];
-        $ci = $_SESSION['foliocita'];
         echo "</div>";
         $servicioup = new select();
         $servq = "UPDATE servicio_cita set servicio_sc = $servicio WHERE id_ovcita = " . intval($_SESSION['id_ovcita']) . "";
         $reg = $servicioup->seleccionar($servq);
         $servicioup1 = new select();
-        $servq1 = "UPDATE citas set hora_cita = $horario WHERE id_citas=$foliocita";
+        $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . "  WHERE id_citas=$foliocita";
         $reg1 = $servicioup1->seleccionar($servq1);
         
     }
