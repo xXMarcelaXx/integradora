@@ -22,9 +22,8 @@
     extract($_POST);
 
     $_SESSION['horario'] = $horario;
-    $horario= $_SESSION['horario'];
 
-    $cita = new citas();
+    $cita = new CITAS();
     $cita->CITAADMIN($servicio, $horario);
 
     header("refresh:3; ../vistaadmin.php");
