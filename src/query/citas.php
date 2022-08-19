@@ -76,7 +76,7 @@ class citas
         $ser = $_SESSION['idser'];
         $ci = $_SESSION['idc'];
         $servicioup = new select();
-        $servq = "UPDATE servicio_cita set servicio_sc = ".intval($servicio)." WHERE id_ovcita = " . intval($_SESSION['id_ovcita']) . "";
+        $servq = "UPDATE servicio_cita set servicio_sc = $servicio WHERE id_ovcita = " . intval($_SESSION['id_ovcita']) . "";
         $reg = $servicioup->seleccionar($servq);
         $servicioup1 = new select();
         $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . " WHERE id_citas=" . $_SESSION['id_cita'] . "";
