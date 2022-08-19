@@ -138,7 +138,6 @@ foreach ($tabla as $row) {
               $producto_nom = $pro->nombre_producto;
               $descripcion = $pro->descripcion;
               $precio = $pro->costo;
-              $img_producto = $pro->img_producto;
               $id = $pro->id_producto;
               $existencia = $pro->existencia;
 
@@ -146,7 +145,7 @@ foreach ($tabla as $row) {
 
               <div class="container">
                 <div class="row p-2 bg-white border rounded">
-                  <div class="col-md-3 mt-1"><img data-toggle="popover" width="35%" class="img-fluid img-responsive rounded product-image" src="../<?php echo $pro->img_producto; ?>">
+                  <div class="col-md-3 mt-1"><img data-toggle="popover" width="35%" class="img-fluid img-responsive rounded product-image" src="data:image/jpeg;base64,<?php echo base64_encode($producto[0]=$pro->img_producto)?>">
                   </div>
                   <div class="col-md-6 mt-1">
                     <h5><?php echo $producto_nom; ?></h5>
@@ -260,7 +259,7 @@ foreach ($tabla as $row) {
               if ($_POST == null or $fecha < $date) {
                 echo
                 "<div class='col-md-12'>
-                                <button type='submit' class ='btn btn-outline-info btn-lg btn-block' disabled>Agendar Cita</button>
+                                <button type='submit' class ='btn btn-outline-danger btn-lg btn-block' disabled>Agendar Cita</button>
                             </div>";
               } else {
                 echo

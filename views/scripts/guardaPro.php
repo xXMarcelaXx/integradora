@@ -13,43 +13,27 @@
     <?php
     use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
+
+    $insert =new ejecuta();
     extract($_POST);
-    $imagen='';
 
-    if(isset($_FILES["img"]))
+    if($_FILES["image"]["error"] > 0)
     {
-        $file = $_FILES["img"];
-        $nombre = $file["name"];
-        $tipo = $file["type"];
-        $ruta_provisional = $file["tmp_name"];
-        $size =  $file["size"];
-        $dimensiones = getimagesize($ruta_provisional);
-        $width = $dimensiones[0];
-        $height = $dimensiones[1];
-        $carpeta = "../../imgpro/";
+
     }
-    if($tipo != 'image/jpg' && $tipo !='image/JPG' && $tipo != 'image/jpeg' && $tipo != 'image/png')
-    {
-        echo "<div class='alert alert-success'> El archivo que estas intenando subir no es una imagen, porfavor intenta con otro archivo </div>";
-
-        header("refresh:2; ../verPro.php");
-    }
-    else
-    {
-        $src = $carpeta.$nombre;
-        move_uploaded_file($ruta_provisional, $src);
-        $imagen = "imgpro/".$nombre;
-        $insert =new ejecuta();
-
+    else{
+        
+        $ruta = addslashes(file_get_contents($_FILES['image']['tmp_name']));
         $cadena="INSERT INTO productos 
         (nombre_producto,cat_producto,descripcion,costo,precio_compra,img_producto,existencia) VALUES 
-        ('$nombre_producto','$cat','$descripcion','$precio_venta','$precio_compra','$imagen','$existencia')";
-    
+        ('$nombre_producto','$cat','$descripcion','$precio_venta','$precio_compra','$ruta','$existencia')";
         $insert->ejecutar($cadena);
+    }
+
         echo "<div class='alert alert-success'> PRODUCTO REGISTRADO </div>";
         header("refresh:2; ../verPro.php");
 
-    }
+    
 
     ?>
 
