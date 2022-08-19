@@ -122,6 +122,8 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                 <th>iva</th>
                                 <th>subtotal</th>
                                 <th>total</th>
+                                <th>Editar</th>
+                                <th>Eliminar Servicio</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -145,6 +147,8 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                             ?>
                         </tbody>
                     </table>
+                    <!-- Button trigger modal -->
+                    <!-- Modal -->
                 </div>
             </div>
 
