@@ -9,28 +9,19 @@
 </head>
 <body>
     <div class="container">
+
     <?php
     use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
     $ex = $_POST['existencia'];
     $insert =new ejecuta();
+
     extract($_POST);
-
-    if($_FILES["image"]["error"] > 0)
-    {
-
-    }
-    else{
-        
-        $ruta = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-        $cadena="UPDATE productos SET nombre_producto='$nombre_producto',precio_compra=$precio_compra,
-costo=$precio_venta,descripcion='$descripcion',existencia=$ex,cat_producto='$cat',img_producto='$ruta'
+$cadena="UPDATE productos SET nombre_producto='$nombre_producto',precio_compra=$precio_compra,
+costo=$precio_venta,descripcion='$descripcion',existencia=$ex,cat_producto='$cat'
  WHERE id_producto='$id_producto'";
-        $insert->ejecutar($cadena);
 
-        
-    }
-
+    $insert->ejecutar($cadena);
     echo "<div class='alert alert-success'> ACTUALIZADO </div>";
 
     header("refresh:2; ../verPro.php");
