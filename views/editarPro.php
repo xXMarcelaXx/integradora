@@ -134,13 +134,6 @@ foreach($tabla as $registro)
               <input type="text" class="form-control" name="descripcion" required value="<?php echo $registro->descripcion?>" >
               </div><br>
 
-              <div class="input-group mb-3">
-                        <label for="">Ingresa foto</label>
-                      </div>
-
-                      <div class="input-group mb-3">
-                        <input type="file" class="form-control" name="image" required>
-                      </div>
 
               <?php
               $quer = new select();
