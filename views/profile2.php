@@ -474,7 +474,6 @@ if($_POST)
 
                 ?>
                 <td><a href="scripts/verdetalleclientes.php?id=<?php echo $registro->FOLIO?>" class="btn btn-info">Detalles</a></td>
-                <td><a href="scripts/cancelarpedidocliente.php?id=<?php echo $registro->FOLIO?>" class="btn btn-danger">Cancelar</a></td>
 
                 <?php
                 echo"</tr>";
