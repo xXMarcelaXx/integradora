@@ -4,7 +4,7 @@ use PDO;
 use PDOException;
 use barber\data\Database;
 
-class ejecuta
+class ejecutal
 {
     public function ejecutar($qry)
     {
