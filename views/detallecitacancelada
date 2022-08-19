@@ -132,10 +132,6 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                             foreach ($tabla as $registro) {
                             ?>
                                 <tr>
-                                    <?php $_SESSION['idcit'] = $registro->idc ?>
-                                    <?php $_SESSION['foliocita'] = $registro->idcita ?>
-                                    <?php $_SESSION['idser'] = $registro->idser ?>
-                                    <?php $_SESSION['id_ovcita'] = $registro->id_ovcita ?>
                                     <td><?php echo $registro->cliente ?></td>
                                     <td><?php echo $registro->fecha ?></td>
                                     <td><?php echo $registro->horario ?></td>
@@ -144,37 +140,7 @@ if ($_SESSION['tipo_cuenta'] == 'Administrador') {
                                     <td><?php echo $registro->iva ?></td>
                                     <td><?php echo $registro->subtotal ?></td>
                                     <td><?php echo $registro->total ?></td>
-
-                                    <td><a href="../views/scripts/editardetallecita.php" class="btn btn-secondary">Editar</a></td>
-                                    <td>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            Eliminar
-                                        </button>
-                                    </td>
-
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">¿Esta seguro de Eliminar el servicio?</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="../views/scripts/citacanceladahoy.php" method="post">
-                                                        <input type="text" value="<?php echo "$registro->id_ovcita" ?>" hidden name="id">
-                                                        <input type="text" value="<?php echo "$registro->idcita" ?>" hidden name="idcita">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-warning">Confirmar</button>
-                                                </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </tr>
                             <?php
                             }
