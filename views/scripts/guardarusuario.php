@@ -18,7 +18,7 @@
         <?php
         $date = date('Y-m-d');
 
-        use barber\Query\Ejecuta;
+        use barber\query\Ejecuta;
        
 
         require("../../vendor/autoload.php");
