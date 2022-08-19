@@ -71,18 +71,17 @@ class citas
             $ejecutar2->ejecutar($query2);
         }
     }
-    public function CITAADMIN($servicio, $horario)
+    public function CITAADMIN($servicio, $horario, $foliocita)
     {
         $c = new select();
         echo "<div hidden>";
         $ser = $_SESSION['idser'];
-        $ci = $_SESSION['idc'];
         echo "</div>";
         $servicioup = new select();
-        $servq = "UPDATE servicio_cita set servicio_sc = $servicio where id_ovcita = " . $_SESSION['id_ovcita'] . "";
+        $servq = "UPDATE servicio_cita set servicio_sc = $servicio WHERE id_ovcita = " . intval($_SESSION['id_ovcita']) . "";
         $reg = $servicioup->seleccionar($servq);
         $servicioup1 = new select();
-        $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . " WHERE id_citas=" . $_SESSION['id_cita'] . "";
+        $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . "  WHERE id_citas=$foliocita";
         $reg1 = $servicioup1->seleccionar($servq1);
         
     }
@@ -97,7 +96,7 @@ class citas
         $servq = "UPDATE servicio_cita set servicio_sc = $servicio where id_ovcita = " . $_SESSION['id_ovcita'] . "";
         $reg = $servicioup->seleccionar($servq);
         $servicioup1 = new select();
-        $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . " WHERE id_citas=" . $_SESSION['id_cita'] . "";
+        $servq1 = "UPDATE citas set hora_cita = " . intval($horario) . " where id_citas= " . $_SESSION['id_cita'] . "";
         $reg1 = $servicioup1->seleccionar($servq1);
         
     }

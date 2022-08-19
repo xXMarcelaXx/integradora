@@ -22,9 +22,10 @@
     extract($_POST);
 
     $_SESSION['horario'] = $horario;
+    $foliocita = $_SESSION['foliocita'];
 
-    $cita = new citas();
-    $cita->CITACLIENTE($servicio, $horario);
+    $cita = new CITAS();
+    $cita->CITAADMIN($servicio, $horario, $foliocita);
 
     header("refresh:3; ../vistaadmin.php");
     echo "<h1>Cita Modificada</h1>";

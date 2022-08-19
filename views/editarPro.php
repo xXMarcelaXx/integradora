@@ -134,6 +134,7 @@ foreach($tabla as $registro)
               <input type="text" class="form-control" name="descripcion" required value="<?php echo $registro->descripcion?>" >
               </div><br>
 
+
               <?php
               $quer = new select();
               $cadena="SELECT id_catproducto, categoria FROM cat_productos";

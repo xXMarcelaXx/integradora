@@ -18,7 +18,6 @@ class ejecutal
         }
         catch(PDOException $e)
         {
-            echo"<p>nombre de usuario o correo en uso</p>";
         }
     }
 

@@ -8,17 +8,22 @@ class ejecuta
 {
     public function ejecutar($qry)
     {
-        try
+        try 
         {
-            $cc= new Database("barberia","bar","admin");
-             $objetopdo=$cc->getPDO();
-             $resultado=$objetopdo->query($qry);
-             $cc->desconectarDb();
+            $cc = new Database("barberia","bar","admin");
+            $objetoPDO= $cc->getPDO();
+            $resultado= $objetoPDO->query($qry);
+            $fila = $resultado->fetchAll(PDO::FETCH_OBJ);            
+            $cc->desconectarDB();
+            return $fila;
+            
+            
         }
         catch(PDOException $e)
         {
-            echo $e->getMessage();
+        
         }
+        
     }
 
     public function verificareg($nombre_usuario,$correo)
