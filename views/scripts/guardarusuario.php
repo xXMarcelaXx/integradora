@@ -18,11 +18,11 @@
         <?php
         $date = date('Y-m-d');
 
-        use barber\Query\ejecuta;
+        use barber\Query\Ejecuta;
        
 
         require("../../vendor/autoload.php");
-        $insert = new ejecutal();
+        $insert = new ejecuta();
 
         extract($_POST);
         if ($nombre_usuario) {
