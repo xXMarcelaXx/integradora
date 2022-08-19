@@ -25,20 +25,7 @@ use barber\query\select;
 require("../vendor/autoload.php");
 session_start();
 if ($_SESSION['tipo_cuenta'] == 'Administrador') {
-$query = new select();
 
-$cadena = "SELECT cuenta.nombre, concat(cuenta.nombre,' ',cuenta.ap_paterno,' ',cuenta.ap_materno)as completo,
-         cuenta.direccion,cuenta.telefono,cuenta.correo FROM cuenta where cuenta.nombre_usuario='XxMarcelaXX'";
-
-$tabla = $query->seleccionar($cadena);
-
-foreach ($tabla as $row) {
-  $nombre = $row->nombre;
-  $completo = $row->completo;
-  $direccion = $row->direccion;
-  $telefono = $row->telefono;
-  $email = $row->correo;
-}
 ?>
 
 <body>
@@ -154,6 +141,7 @@ foreach ($tabla as $row) {
                                 <th>servicio</th>
                                 <th>horario</th>
                                 <th>motivo de Cancelacion</th>
+                                <th>Detalle</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -166,6 +154,7 @@ foreach ($tabla as $row) {
                                     <td><?php echo $registro->servicio ?></td>
                                     <td><?php echo $registro->hora ?></td>
                                     <td><?php echo $registro->motivo ?></td>
+                                    <td><a href="../views/detallecitacancelada?id=<?php echo $registro->cita ?>" class="btn btn-info">Detalles</a></td>
                                 </tr>
                         <?php
                             }
