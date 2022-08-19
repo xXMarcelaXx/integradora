@@ -26,7 +26,7 @@ if ($_SESSION['tipo_cuenta']=='Administrador')
 
 
        $consulta="SELECT max(id_ovproducto) as id FROM orden_ventas_producto";
-        $resultado=$usuario->ejecutar($consulta);
+        $resultado->ejecutar($consulta);
         foreach($resultado as $row)
         {
             $id=$row->id;
@@ -40,7 +40,7 @@ if ($_SESSION['tipo_cuenta']=='Administrador')
             $usuario->ejecutar($cadena2);
 
             $existencia="SELECT productos.existencia from productos where productos.id_producto=$idpro";
-            $existe=$usuario->ejecutar($existencia);
+            $existe->ejecutar($existencia);
                 foreach($existe as $row)
                 {
                 $totalexistencia=$row->existencia;

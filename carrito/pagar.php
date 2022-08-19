@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-
-    <?php
+<?php
     use barber\query\Ejecuta;
 
     require ("../vendor/autoload.php");
@@ -28,11 +27,11 @@
         $resultado=new ejecuta();
       $cadena="INSERT INTO orden_ventas_producto (Usuario_ovp,ovp_fecha,Status)
        VALUES ('".$_SESSION['usuario']."','$fecha','Pendiente')";
-       $usuario->ejecutar($cadena);
+       $usuario-> ejecutar($cadena);
 
 
        $consulta="SELECT max(id_ovproducto) as id FROM orden_ventas_producto";
-        $resultado=$usuario->ejecutar($consulta);
+        $resultado-> ejecutar($consulta);
         foreach($resultado as $row)
         {
             $id=$row->id;
@@ -46,7 +45,7 @@
             $usuario->ejecutar($cadena2);
 
             $existencia="SELECT productos.existencia from productos where productos.id_producto=$idpro";
-            $existe=$usuario->ejecutar($existencia);
+            $existe-> ejecutar($existencia);
                 foreach($existe as $row)
                 {
                 $totalexistencia=$row->existencia;
@@ -69,5 +68,6 @@
    
    
     ?>
+
 </body>
 </html>
