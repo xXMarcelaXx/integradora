@@ -28,10 +28,12 @@
         (nombre_producto,cat_producto,descripcion,costo,precio_compra,img_producto,existencia) VALUES 
         ('$nombre_producto','$cat','$descripcion','$precio_venta','$precio_compra','$ruta','$existencia')";
         $insert->ejecutar($cadena);
+
+        
     }
 
         echo "<div class='alert alert-success'> PRODUCTO REGISTRADO </div>";
-        header("refresh:2; ../verPro.php");
+        header("refresh:4; ../verPro.php");
 
     
 
