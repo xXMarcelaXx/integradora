@@ -422,14 +422,13 @@ if($_POST)
               </div>
             </div>
             <div class="col-md-4">
-              <button type="submit" class="btn btn-outline-secondary">Ver</button>
+              <button type="submit" class="btn btn-outline-secondary" id="finalizados">Ver</button>
             </div>
           </div>
         </form>
         <?php
-if($_POST)
+if($_POST['finalizados'])
 {
-  $us=$_SESSION['usuario'];
     extract($_POST);
 
             $con= new select();
