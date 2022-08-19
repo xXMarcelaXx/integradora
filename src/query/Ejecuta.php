@@ -21,7 +21,7 @@ class ejecuta
         }
         catch(PDOException $e)
         {
-            echo $e->getMessage();
+        
         }
         
     }
