@@ -47,14 +47,14 @@ class ejecutal
                 echo"<div class='alert alert-danger'>";
                echo"<h2 align='center'><font color='red'>Usuario o correo ya existentes</font></h2>";
                 echo"</div>";
-                header("refresh:2 ../../views/registro.php");
+                header("refresh:2 ../../views/Usuario.php");
             }
             else
             {
                 echo"<div class='alert alert-success'>";
                 echo"<h1 align='center'><font color='green'>usuario registrado</font></h1>";
                 echo"</div>";
-            header("location:../../views/iniciosesion.php");
+            header("location:../../views/vistaadmin.php");
             }      
             $cc->desconectarDb();
         }
