@@ -20,13 +20,13 @@
                    use barber\query\select;
                    extract($_GET);
                    $query=new select();
-                $cadena=" SELECT orden_ventas_producto.id_ovproducto, productos.nombre_producto,productos.costo,detalle_ovproductos.cantidad, 
+                $cadena="SELECT productos.nombre_producto,productos.costo,detalle_ovproductos.cantidad,
                 sum(productos.costo*detalle_ovproductos.cantidad) as 'SUBTOTAL',
-                sum((productos.costo*detalle_ovproductos.cantidad)*0.16) as 'IVA', 
+                sum((productos.costo*detalle_ovproductos.cantidad)*0.16) as 'IVA',
                 sum((productos.costo*detalle_ovproductos.cantidad)*1.16) as 'TOTAL' from
-                productos inner join detalle_ovproductos on productos.id_producto=detalle_ovproductos.producto inner join orden_ventas_producto
+                productos inner join detalle_ovproductos on detalle_ovproductos.producto=productos.id_producto inner join orden_ventas_producto
                 on detalle_ovproductos.ov_productos=orden_ventas_producto.id_ovproducto where orden_ventas_producto.id_ovproducto='$id'
-                group by orden_ventas_producto.id_ovproducto";
+                group by detalle_ovproductos.producto";
                 $tabla=$query->seleccionar($cadena);
     
                 echo"<table style='text-align:center' class='table table-hover'>
