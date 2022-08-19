@@ -340,13 +340,13 @@ foreach ($tabla as $row) {
               </div>
             </div>
             <div class="col-md-4">
-              <button type="submit" class="btn btn-outline-secondary">Ver</button>
+              <button type="submit" class="btn btn-outline-secondary" name="pedidos">Ver</button>
             </div>
           </div>
         </form>
 
         <?php
-if($_POST)
+if($_POST['pedidos'])
 {
   $us=$_SESSION['usuario'];
     extract($_POST);
@@ -422,7 +422,7 @@ if($_POST)
               </div>
             </div>
             <div class="col-md-4">
-              <button type="submit" class="btn btn-outline-secondary" id="finalizados">Ver</button>
+              <button type="submit" class="btn btn-outline-secondary" name="finalizados">Ver</button>
             </div>
           </div>
         </form>
