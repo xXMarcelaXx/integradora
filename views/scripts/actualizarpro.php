@@ -12,9 +12,10 @@
     <?php
     use barber\query\Ejecuta;
     require("../../vendor/autoload.php");
+    $ex = $_POST['existencia'];
     $insert =new ejecuta();
     extract($_POST);
-    $ex = $_POST['existencia'];
+
 
     if($_FILES["image"]["error"] > 0)
     {
