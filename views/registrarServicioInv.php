@@ -68,7 +68,7 @@
                     </div>
                 </form>
                 <div class="row">
-                    <form action="scripts/eliminarCita.php">
+                    <form action="scripts/eliminarCitaInv.php">
                             <div class="col-md-3">
                                 <button type="submit" class="btn btn-secondary">Cancelar Cita</button>
                             </div>
