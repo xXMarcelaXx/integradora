@@ -74,8 +74,10 @@ class citas
     public function CITAADMIN($servicio, $horario, $foliocita)
     {
         $c = new select();
+        echo "<div hidden>";
         $ser = $_SESSION['idser'];
         $ci = $_SESSION['foliocita'];
+        echo "</div>";
         $servicioup = new select();
         $servq = "UPDATE servicio_cita set servicio_sc = $servicio WHERE id_ovcita = " . intval($_SESSION['id_ovcita']) . "";
         $reg = $servicioup->seleccionar($servq);
